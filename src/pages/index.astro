@@ -1,16 +1,35 @@
 ---
+import fetchApi from "../lib/strapi";
+import type Home from "../interfaces/home";
 
+import qs from "qs";
+const query = qs.stringify(
+  {
+    populate: "*",
+  },
+
+  {
+    encodeValuesOnly: false, // prettify URL
+  }
+);
+
+const homequery = `home?${query}`;
+
+const homeData = await fetchApi<Home>({
+  endpoint: homequery, // the content type to fetch
+  wrappedByKey: "data", // the key to unwrap the response
+});
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>{homeData.attributes.title}</h1>
+  </body>
 </html>
