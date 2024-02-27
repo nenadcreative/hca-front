@@ -1,6 +1,8 @@
 ---
 import fetchApi from "../lib/strapi";
 import type Home from "../interfaces/home";
+import Layout from "../layouts/Layout.astro";
+import "../styles/base.css";
 
 import qs from "qs";
 const query = qs.stringify(
@@ -21,15 +23,6 @@ const homeData = await fetchApi<Home>({
 });
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>{homeData.attributes.title}</h1>
-  </body>
-</html>
+<Layout title="Home">
+  <h1 class="text-red-500">{homeData.attributes.title}</h1>
+</Layout>
