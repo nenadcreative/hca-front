@@ -11,9 +11,16 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.5",
+    "@astrojs/react": "^3.0.10",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/libre-baskerville": "^5.0.8",
+    "@fontsource/titillium-web": "^5.0.18",
+    "@types/react": "^18.2.60",
+    "@types/react-dom": "^18.2.19",
     "astro": "^4.4.4",
     "qs": "^6.11.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   }

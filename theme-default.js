@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 // Example preset
 module.exports = {
   theme: {
@@ -12,12 +14,15 @@ module.exports = {
         green: "#91B490",
       },
       dark: {
-        dark1: "#151E2D",
-        dark2: "#2C3542",
-        dark3: "#3C4450",
+        1: "#151E2D",
+        2: "#2C3542",
+        3: "#3C4450",
       },
       gray: {
         DEFAULT: "#F5FBFE",
+      },
+      white: {
+        DEFAULT: "#FFFFFF",
       },
     },
     fontSize: {
@@ -35,8 +40,14 @@ module.exports = {
       "display-4xl": ["5rem", "1.2"],
     },
     fontFamily: {
-      display: ["Graphik", "sans-serif"],
-      body: ["Graphik", "sans-serif"],
+      display: ["Libre Baskerville", ...defaultTheme.fontFamily.serif],
+      body: ["Titillium Web", ...defaultTheme.fontFamily.sans],
+    },
+    fontWeight: {
+      normal: "400",
+      semibold: "600",
+      bold: "700",
+      black: "900",
     },
     extend: {},
   },

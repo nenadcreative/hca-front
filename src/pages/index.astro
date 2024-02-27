@@ -2,6 +2,7 @@
 import fetchApi from "../lib/strapi";
 import type Home from "../interfaces/home";
 import Layout from "../layouts/Layout.astro";
+import DecoratedText from "../components/DecoratedText.tsx";
 import "../styles/base.css";
 
 import qs from "qs";
@@ -24,7 +25,9 @@ const homeData = await fetchApi<Home>({
 ---
 
 <Layout title="Home">
-  <h1 class="text-blue-light text-display-4xl">{homeData.attributes.title}</h1>
+  <h1 class="text-blue-light">
+    {homeData.attributes.title}
+  </h1>
   <div class="grid grid-cols-4 gap-10">
     <div class="w-20 h-20 bg-brand-blue"></div>
     <div class="w-20 h-20 bg-brand-blue2"></div>
@@ -36,4 +39,8 @@ const homeData = await fetchApi<Home>({
     <div class="w-20 h-20 bg-dark-dark3"></div>
     <div class="w-20 h-20 bg-gray"></div>
   </div>
+
+  <h2>
+    <DecoratedText content="Example of using $accentDecorated$accent Text" />
+  </h2>
 </Layout>

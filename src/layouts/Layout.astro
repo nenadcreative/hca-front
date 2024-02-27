@@ -3,6 +3,16 @@ interface Props {
   title: string;
 }
 
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+import "@fontsource/libre-baskerville/400.css";
+import "@fontsource/libre-baskerville/700.css";
+import "@fontsource/titillium-web/400.css";
+import "@fontsource/titillium-web/600.css";
+import "@fontsource/titillium-web/700.css";
+import "@fontsource/titillium-web/900.css";
+
 const { title } = Astro.props;
 ---
 
@@ -17,8 +27,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="">
-    <main>
+    <main class="min-h-screen">
+      <Header />
       <slot />
     </main>
+    <Footer />
   </body>
 </html>

@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  html {
+    @apply font-body leading-normal text-dark-1   break-words;
+  }
+
+  h1 {
+    @apply font-display font-bold text-display-3xl;
+  }
+  h2 {
+    @apply font-display font-bold text-display-2xl;
+  }
+  h3 {
+    @apply font-display font-bold text-display-xl;
+  }
+  h4 {
+    @apply font-display font-bold text-display-lg;
+  }
+
+  h5 {
+    @apply font-display font-bold text-display-md;
+  }
+}
