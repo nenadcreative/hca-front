@@ -24,5 +24,16 @@ const homeData = await fetchApi<Home>({
 ---
 
 <Layout title="Home">
-  <h1 class="text-red-500">{homeData.attributes.title}</h1>
+  <h1 class="text-blue-light text-display-4xl">{homeData.attributes.title}</h1>
+  <div class="grid grid-cols-4 gap-10">
+    <div class="w-20 h-20 bg-brand-blue"></div>
+    <div class="w-20 h-20 bg-brand-blue2"></div>
+    <div class="w-20 h-20 bg-brand-yellow"></div>
+    <div class="w-20 h-20 bg-brand-yellowDark"></div>
+    <div class="w-20 h-20 bg-accent-green"></div>
+    <div class="w-20 h-20 bg-dark-dark1"></div>
+    <div class="w-20 h-20 bg-dark-dark2"></div>
+    <div class="w-20 h-20 bg-dark-dark3"></div>
+    <div class="w-20 h-20 bg-gray"></div>
+  </div>
 </Layout>
