@@ -1,17 +1,52 @@
 ---
-interface Props {
-  content: any;
-  title: string;
-  description: string;
-}
-
 import Container from "../layouts/Container.astro";
+import ButtonLink from "../components/ButtonLink.astro";
+import DecoratedText from "../components/DecoratedText";
+import sectionBg from "../assets/section-bg.svg";
+import logoDecoration from "../assets/logo-decoration.svg";
+import { Image } from "astro:assets";
 const { content } = Astro.props;
+console.log(content.imageBig.data.attributes);
 ---
 
-<section>
-  <Container>
-    <h1>{content.title}</h1>
-    <p>{content.description}</p>
+<section class="py-16 relative">
+  <Image
+    src={sectionBg}
+    class="absolute object-cover h-full w-full bottom-0 right-0"
+    alt=""
+    loading="eager"
+  />
+  <Container classes="relative flex flex-col gap-12 z-10">
+    <div class="flex flex-col gap-4 sm:flex-row justify-between items-center">
+      <h1 class="sm:max-w-38">
+        <DecoratedText content={content.title} />
+      </h1>
+      <div class="sm:max-w-md xl:pt-2 font-semibold text-body-lg">
+        <p class="mb-4 xl:mb-8">{content.description}</p>
+        <ButtonLink button={content.button} variant={content.button.type} />
+      </div>
+    </div>
+    <div class="flex w-full gap-2 justify-between items-end pt-11 relative">
+      <Image
+        src={logoDecoration}
+        alt=""
+        class="absolute top-6 sm:top-10 md:top-14 lg:top-20 sm:left-4 xl:left-12 w-20 md:w-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 md:h-24 h-20"
+        loading="eager"
+      />
+      <Image
+        src={content.imageBig.data.attributes.url}
+        alt=""
+        class="max-h-[406px] object-cover w-2/3"
+        inferSize
+        loading="eager"
+      />
+      <Image
+        src={content.imageSmall.data.attributes.url}
+        alt=""
+        class="w-[30%]"
+        inferSize
+        loading="eager"
+      />
+    </div>
   </Container>
 </section>

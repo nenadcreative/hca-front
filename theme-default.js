@@ -26,10 +26,10 @@ module.exports = {
       },
     },
     fontSize: {
-      "text-xs": ["0.875rem", "1.5"],
-      "text-sm": ["1rem", "1.5"],
-      "text-md": ["1.125rem", "1.5"],
-      "text-lg": ["1.25rem", "1.4"],
+      "body-xs": ["0.875rem", "1.5"],
+      "body-sm": ["1rem", "1.5"],
+      "body-md": ["1.125rem", "1.5"],
+      "body-lg": ["1.25rem", "1.4"],
       "display-xs": ["1rem", "1.5"],
       "display-sm": ["1.25rem", "1.25"],
       "display-md": ["1.5rem", "1.3"],
@@ -44,11 +44,15 @@ module.exports = {
       body: ["Titillium Web", ...defaultTheme.fontFamily.sans],
     },
     fontWeight: {
-      normal: "400",
+      regular: "400",
       semibold: "600",
       bold: "700",
       black: "900",
     },
-    extend: {},
+    extend: {
+      spacing: {
+        38: "38rem",
+      },
+    },
   },
 };

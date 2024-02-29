@@ -7,7 +7,7 @@
   }
 
   h1 {
-    @apply font-display font-bold text-display-3xl;
+    @apply font-display font-regular text-display-xl lg:text-display-2xl;
   }
   h2 {
     @apply font-display font-bold text-display-2xl;
