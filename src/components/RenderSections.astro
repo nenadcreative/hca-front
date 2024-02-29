@@ -1,0 +1,19 @@
+---
+import HomeHero from "../sections/HomeHero.astro";
+
+const { content } = Astro.props;
+---
+
+{
+  content &&
+    content.map((section) => {
+      console.log(section);
+      switch (section.__component) {
+        case "sections.home-hero":
+          return <HomeHero content={section} />;
+
+        default:
+          return null;
+      }
+    })
+}

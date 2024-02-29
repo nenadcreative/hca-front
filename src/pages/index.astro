@@ -3,12 +3,17 @@ import fetchApi from "../lib/strapi";
 import type Home from "../interfaces/home";
 import Layout from "../layouts/Layout.astro";
 import DecoratedText from "../components/DecoratedText.tsx";
+import RenderSections from "../components/RenderSections.astro";
 import "../styles/base.css";
 
 import qs from "qs";
 const query = qs.stringify(
   {
-    populate: "*",
+    populate: {
+      sections: {
+        homeHero: { populate: "*" },
+      },
+    },
   },
 
   {
@@ -22,25 +27,10 @@ const homeData = await fetchApi<Home>({
   endpoint: homequery, // the content type to fetch
   wrappedByKey: "data", // the key to unwrap the response
 });
+
+console.log(homeData.attributes.sections);
 ---
 
 <Layout title="Home">
-  <h1 class="text-blue-light">
-    {homeData.attributes.title}
-  </h1>
-  <div class="grid grid-cols-4 gap-10">
-    <div class="w-20 h-20 bg-brand-blue"></div>
-    <div class="w-20 h-20 bg-brand-blue2"></div>
-    <div class="w-20 h-20 bg-brand-yellow"></div>
-    <div class="w-20 h-20 bg-brand-yellowDark"></div>
-    <div class="w-20 h-20 bg-accent-green"></div>
-    <div class="w-20 h-20 bg-dark-dark1"></div>
-    <div class="w-20 h-20 bg-dark-dark2"></div>
-    <div class="w-20 h-20 bg-dark-dark3"></div>
-    <div class="w-20 h-20 bg-gray"></div>
-  </div>
-
-  <h2>
-    <DecoratedText content="Example of using $accentDecorated$accent Text" />
-  </h2>
+  <RenderSections content={homeData.attributes.sections} />
 </Layout>

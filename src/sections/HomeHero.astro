@@ -1,0 +1,17 @@
+---
+interface Props {
+  content: any;
+  title: string;
+  description: string;
+}
+
+import Container from "../layouts/Container.astro";
+const { content } = Astro.props;
+---
+
+<section>
+  <Container>
+    <h1>{content.title}</h1>
+    <p>{content.description}</p>
+  </Container>
+</section>
