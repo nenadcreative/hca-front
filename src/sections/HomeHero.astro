@@ -26,7 +26,7 @@ console.log(content.imageBig.data.attributes);
         <ButtonLink button={content.button} variant={content.button.type} />
       </div>
     </div>
-    <div class="flex w-full gap-2 justify-between items-end pt-11 relative">
+    <div class="flex w-full justify-between gap-2 items-end pt-11 relative">
       <Image
         src={logoDecoration}
         alt=""
@@ -36,14 +36,14 @@ console.log(content.imageBig.data.attributes);
       <Image
         src={content.imageBig.data.attributes.url}
         alt=""
-        class="max-h-[406px] object-cover w-2/3"
+        class="object-cover rounded-lg w-[68%]"
         inferSize
         loading="eager"
       />
       <Image
         src={content.imageSmall.data.attributes.url}
         alt=""
-        class="w-[30%]"
+        class="w-[28%] rounded-lg"
         inferSize
         loading="eager"
       />
