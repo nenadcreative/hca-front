@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import sectionbg from "../assets/bg-hero.svg";
+import logoDecoration from "../assets/logo-decoration.svg";
+import DecoratedText from "../components/DecoratedText";
+import ButtonLink from "../components/ButtonLink.astro";
+import Container from "../layouts/Container.astro";
+const { content } = Astro.props;
+---
+
+<section class="py-24 relative overflow-hidden">
+  <Container
+    classes="relative z-10 flex flex-col md:flex-row gap-20 md:gap-8 justify-between items-center"
+  >
+    <div class="lg:max-w-[800px]">
+      <h1 class="mb-5"><DecoratedText content={content.title} /></h1>
+      <p class="text-body-lg font-semibold">{content.description}</p>
+
+      {
+        content.button && (
+          <div class="mt-6 lg:mt-11">
+            <ButtonLink button={content.button} variant={content.button.type} />
+          </div>
+        )
+      }
+    </div>
+    <div
+      class="relative min-w-[376px] w-full md:flex md:justify-end lg:justify-start lg:w-auto"
+    >
+      <Image
+        src={logoDecoration}
+        alt=""
+        class="absolute w-20 h-20 lg:w-36 lg:h-36 top-0 left-4 -translate-y-1/2"
+        loading="eager"
+      />
+      <Image
+        src={content.image.data.attributes.url}
+        class="w-full h-full object-cover"
+        inferSize
+        alt=""
+      />
+    </div>
+  </Container>
+  <Image
+    class="absolute object-cover bottom-0 right-0 z-0"
+    src={sectionbg}
+    alt=""
+  />
+</section>

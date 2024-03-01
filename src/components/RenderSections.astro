@@ -1,5 +1,6 @@
 ---
 import HomeHero from "../sections/HomeHero.astro";
+import Hero from "../sections/Hero.astro";
 import FeatureImageCollage from "../sections/FeatureImageCollage.astro";
 
 const { content } = Astro.props;
@@ -12,6 +13,8 @@ const { content } = Astro.props;
       switch (section.__component) {
         case "sections.home-hero":
           return <HomeHero content={section} />;
+        case "sections.hero":
+          return <Hero content={section} />;
         case "sections.feature-image-collage":
           return <FeatureImageCollage content={section} />;
         default:
