@@ -8,9 +8,10 @@ const variants = {
 };
 ---
 
-<a
+{button.file.data !== null  && <a
   class=` px-8 py-4 rounded-lg font-semibold text-body-md  inline-block ${variants[variant]}`
-  href={button.link}
+  href={button.file.data.attributes.url}
+  target="_blank"
   >{button.text}
   {
     variant === "textLink" && (
@@ -30,4 +31,5 @@ const variants = {
       </svg>
     )
   }
-</a>
+</a>}
+

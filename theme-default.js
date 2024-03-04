@@ -54,6 +54,15 @@ module.exports = {
         18: "4.5rem",
         38: "38rem",
       },
+      borderWidth: {
+        12: "12px",
+      },
+      borderRadius: {
+        "3xl": "1.25rem",
+      },
+      backgroundImage: {
+        "feature-bg": "url('/Images/feature-bg.svg')",
+      },
     },
   },
 };

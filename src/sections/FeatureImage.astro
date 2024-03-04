@@ -1,0 +1,65 @@
+---
+import Container from "../layouts/Container.astro";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import { Image } from "astro:assets";
+import DecoratedText from "../components/DecoratedText";
+import ButtonLink from "../components/ButtonLink.astro";
+
+const { content } = Astro.props;
+
+const layout = content.layout;
+
+const layouts = {
+  "image-content": "flex-row ",
+  "content-image": "flex-row-reverse  ",
+};
+
+const bg = content.background;
+
+const backgrounds = {
+  gray: "bg-gray",
+  white: "bg-white",
+  "gray-decorated": "bg-gray bg-feature-bg bg-right-botton bg-cover",
+  "white-decorated": "bg-white bg-feature-bg bg-right-botton bg-cover",
+};
+---
+
+<section class=`${backgrounds[bg]}`>
+  <Container>
+    <div class=`flex gap-16 items-center py-20 relative  ${layouts[layout]}`>
+      <div class="w-1/2">
+        <Image
+          src={content.image.data.attributes.url}
+          inferSize
+          alt={content.title}
+          class="w-full h-full object-cover border-12 rounded-3xl border-brand-yellow"
+        />
+      </div>
+      <div class="w-1/2">
+        <p class="tagline mb-2">{content.tagline}</p>
+        <h2 class="mb-5">
+          <DecoratedText content={content.title} />
+        </h2>
+        <BlocksRenderer content={content.description} />
+        {
+          content.button && (
+            <div class="mt-6">
+              <ButtonLink
+                button={content.button}
+                target={content.button.target}
+              />
+            </div>
+          )
+        }
+      </div>
+      {
+        content.decoration && (
+          <>
+            <div class="bg-brand-blue w-1/4 lg:w-[250px] h-4 lg:h-6 absolute top-0 right-2 lg:right-4" />
+            <div class="bg-brand-yellow w-1/4 lg:w-[250px] h-4 lg:h-6 absolute bottom-0 right-2 lg:right-4" />
+          </>
+        )
+      }
+    </div>
+  </Container>
+</section>
