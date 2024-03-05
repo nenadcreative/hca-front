@@ -24,7 +24,9 @@
   }
 
   p {
+
     @apply text-body-md  font-body font-regular;
+
   }
   strong {
     @apply font-semibold;
