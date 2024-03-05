@@ -10,8 +10,8 @@ const { content } = Astro.props;
 const layout = content.layout;
 
 const layouts = {
-  "image-content": "flex-row ",
-  "content-image": "flex-row-reverse  ",
+  "image-content": "md:flex-row ",
+  "content-image": "md:flex-row-reverse  ",
 };
 
 const bg = content.background;
@@ -26,8 +26,10 @@ const backgrounds = {
 
 <section class=`${backgrounds[bg]}`>
   <Container>
-    <div class=`flex gap-16 items-center py-20 relative  ${layouts[layout]}`>
-      <div class="w-1/2">
+    <div
+      class=`flex flex-col gap-8 lg:gap-16 items-center py-20 relative  ${layouts[layout]}`
+    >
+      <div class="w-full md:w-1/2">
         <Image
           src={content.image.data.attributes.url}
           inferSize
@@ -35,7 +37,7 @@ const backgrounds = {
           class="w-full h-full object-cover border-12 rounded-3xl border-brand-yellow"
         />
       </div>
-      <div class="w-1/2">
+      <div class="w-full md:w-1/2">
         <p class="tagline mb-2">{content.tagline}</p>
         <h2 class="mb-5">
           <DecoratedText content={content.title} />
