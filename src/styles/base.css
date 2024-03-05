@@ -24,7 +24,7 @@
   }
 
   p {
-    @apply text-body-md text-dark-2 font-body font-regular;
+    @apply text-body-md font-body font-regular;
   }
   strong {
     @apply font-semibold;
