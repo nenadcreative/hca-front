@@ -62,6 +62,7 @@ module.exports = {
       },
       backgroundImage: {
         "feature-bg": "url('/Images/feature-bg.svg')",
+        "section-bg": "url('/Images/section-bg.svg')",
       },
     },
   },
