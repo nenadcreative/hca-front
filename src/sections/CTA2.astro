@@ -3,6 +3,8 @@ import Container from "../layouts/Container.astro";
 const { content } = Astro.props;
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import ButtonLink from "../components/ButtonLink.astro";
+import { Image } from "astro:assets";
+
 
 
 
@@ -25,12 +27,22 @@ const backgrounds = {
 ---
 
 <section class=`${backgrounds[bg]} py-24 bg-section-bg bg-cover bg-no-repeat	`>
-  <Container>
+  <Container> 
     <div class=`flex flex-col gap-8 md:items-center ${layouts[layout]}`>
-      <div class=" md:py-16 py-8 md:px-8 px-4 rounded-lg">
-     <p class=" mb-4 tagline">{content.tagline}</p>
-      <h2 class=" mb-4">{content.title}</h2>
-      <div class="mb-9"><BlocksRenderer content={content.description} /></div>
+      <div>
+
+        <Image
+    src={content.image.data.attributes.url}
+    inferSize
+    alt={content.title}
+    class="w-full h-full object-cover rounded-3xl"
+  />
+      </div>
+     
+      <div class=" md:py-16 py-8 md:px-8 px-4 rounded-lg shadow-lg bg-white">
+     <p class=" mb-4 tagline text-dark-1">{content.tagline}</p>
+      <h2 class=" mb-4 text-brand-blue">{content.title}</h2>
+      <div class="mb-9 font-semibold"><BlocksRenderer content={content.description} /></div>
     {
         content.button && (
           <div class="mt-6">
@@ -42,12 +54,6 @@ const backgrounds = {
           </div>
         )
         } 
-    </div>
-         
-      
-      <img src={content.image.data.attributes.url} alt={content.title}>
-    
-    </div>
     
   </Container>
 </section>
