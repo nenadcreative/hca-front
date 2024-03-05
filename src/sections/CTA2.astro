@@ -2,11 +2,16 @@
 import Container from "../layouts/Container.astro";
 const { content } = Astro.props;
 
+
+
 const layout = content.layout;
 const layouts = {
   "image-content": "md:flex-row ",
   "content-image": "md:flex-row-reverse  ",
 };
+
+console.log(content);
+
 
 const bg = content.background;
 
@@ -16,9 +21,13 @@ const backgrounds = {
 };
 ---
 
-<section class=`${backgrounds[bg]}`>
+<section class=`${backgrounds[bg]} py-24`>
   <Container>
-    <div class=`flex ${layouts[layout]}`></div>
-    <h2>Cta 2 testing</h2>
+    <div class=`flex ${layouts[layout]}`>
+      <h2>Personalized Support Throughout the Process</h2>
+      <img src={content.image.data.attributes.url} alt={content.title}>
+    
+    </div>
+    
   </Container>
 </section>
