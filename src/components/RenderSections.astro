@@ -4,6 +4,7 @@ import Hero from "../sections/Hero.astro";
 import FeatureImageCollage from "../sections/FeatureImageCollage.astro";
 import FeatureImage from "../sections/FeatureImage.astro";
 import CTA2 from "../sections/CTA2.astro";
+import CTA from "../sections/CTA.astro";
 
 const { content } = Astro.props;
 ---
@@ -21,6 +22,8 @@ const { content } = Astro.props;
           return <FeatureImageCollage content={section} />;
         case "sections.feature-image":
           return <FeatureImage content={section} />;
+        case "sections.cta":
+          return <CTA content={section} />;
         case "sections.cta-2":
           return <CTA2 content={section} />;
         default:
