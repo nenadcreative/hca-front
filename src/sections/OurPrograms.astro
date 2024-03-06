@@ -1,10 +1,65 @@
 ---
 import Container from "../layouts/Container.astro";
+import ProgramCard from '../components/ProgramCard.astro';
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import ButtonLink from "../components/ButtonLink.astro";
+import { Image } from "astro:assets";
+
+
 const { content } = Astro.props;
+
+
+console.log(content);
+
 ---
 
-<section>
+<section class=" py-20">
   <Container>
-    <h2>Our Programs</h2>
+    {
+      content.tagline && (
+        <p class="mb-2 tagline text-brand-blue">{content.tagline}</p>
+      )
+    }
+    <h2 class=" mb-16">{content.title}</h2>
+    <div class=" grid grid-cols-3">
+      <ProgramCard content={content.card}></ProgramCard>
+
+    </div>
+    <div
+    class=`flex flex-col md:flex-row gap-8 lg:gap-16 justify-between  md:items-center`
+  >
+    
+
+    <div
+      class="w-full lg:max-w-2xl md:py-16 py-8 md:px-8 px-4 rounded-lg shadow-lg bg-white"
+    >
+    
+      <h2 class="mb-4 text-brand-blue">{content.ctaTitle}</h2>
+      <div class="mb-9 font-semibold">
+        <BlocksRenderer content={content.ctaDescription} />
+      </div>
+      {
+        content.ctaButton && (
+          <div class="mt-6">
+            <ButtonLink
+              button={content.ctaButton}
+              target={content.ctaButton.target}
+              variant={content.ctaButton.type}
+            />
+          </div>
+        )
+      }
+    </div>
+    <div
+      class="w-full md:max-w-lg lg:max-h-[30rem] rounded-3xl overflow-hidden"
+    >
+      <Image
+        src={content.ctaImage.data.attributes.url}
+        inferSize
+        alt={content.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
   </Container>
 </section>

@@ -1,0 +1,11 @@
+---
+const { content } = Astro.props;
+---
+
+{
+
+content.map((card) => (
+    <p>{card.title}</p>
+))
+
+}
