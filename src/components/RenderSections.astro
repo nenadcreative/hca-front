@@ -6,6 +6,7 @@ import FeatureImage from "../sections/FeatureImage.astro";
 import CTA2 from "../sections/CTA2.astro";
 import CTA from "../sections/CTA.astro";
 import CTAContact from "../sections/CTAContact.astro";
+import List from "../sections/List.astro";
 
 const { content } = Astro.props;
 ---
@@ -29,6 +30,8 @@ const { content } = Astro.props;
           return <CTA2 content={section} />;
         case "sections.cta-contact":
           return <CTAContact content={section} />;
+        case "sections.list":
+          return <List content={section} />;
         default:
           return null;
       }
