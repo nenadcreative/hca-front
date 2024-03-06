@@ -5,24 +5,22 @@ import TwoColTable from "../components/TwoColTable.astro";
 const { content } = Astro.props;
 
 console.log(content);
-
 ---
 
-<section class=" py-24 relative bg-gray">
-  <div class=" absolute top-0 right-2 lg:right-24 bg-brand-blue h-6 w-[250px]"></div>
-  <div class=" absolute bottom-0 right-2 lg:right-24 bg-brand-yellow h-6 w-[250px]"></div>
-  <Container>
-    <div class=" max-w-[800px] mx-auto mb-14 text-center">
-  {
-      content.tagline && (
-        <p class="mb-4 tagline text-brand-blue">{content.tagline}</p>
-      )
-    }
-    <h2 class="mb-5">{content.title}</h2>
-    <BlocksRenderer content={content.description} />
+<section class="bg-gray">
+  <Container classes="py-24 relative">
+    <div class="max-w-[800px] mx-auto mb-14 text-center">
+      {
+        content.tagline && (
+          <p class="mb-4 tagline text-brand-blue">{content.tagline}</p>
+        )
+      }
+      <h2 class="mb-5">{content.title}</h2>
+      <BlocksRenderer content={content.description} />
+    </div>
+    <TwoColTable content={content.table} />
+    <div class="absolute top-0 right-0 bg-brand-blue h-6 w-[250px]"></div>
+    <div class="absolute bottom-0 right-0 bg-brand-yellow h-6 w-[250px]"></div>
 
-</div>
-<TwoColTable content={content.table}></TwoColTable>
-  
   </Container>
 </section>
