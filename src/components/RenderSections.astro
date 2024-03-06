@@ -8,6 +8,7 @@ import CTA from "../sections/CTA.astro";
 import CTAContact from "../sections/CTAContact.astro";
 import List from "../sections/List.astro";
 import ProgramTableSimple from "../sections/ProgramTableSimple.astro";
+import FeatureCenteredCard from "../sections/FeatureCenteredCard.astro";
 
 const { content } = Astro.props;
 ---
@@ -35,6 +36,8 @@ const { content } = Astro.props;
           return <List content={section} />;
         case "sections.program-table-simple":
           return <ProgramTableSimple content={section} />;
+        case "sections.feature-centered-card":
+          return <FeatureCenteredCard content={section} />;
         default:
           return null;
       }
