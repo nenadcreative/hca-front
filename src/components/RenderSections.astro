@@ -10,6 +10,7 @@ import List from "../sections/List.astro";
 import ProgramTableSimple from "../sections/ProgramTableSimple.astro";
 import FeatureCenteredCard from "../sections/FeatureCenteredCard.astro";
 import OurPrograms from "../sections/OurPrograms.astro";
+import Steps from "../sections/Steps.astro";
 
 const { content } = Astro.props;
 ---
@@ -41,6 +42,8 @@ const { content } = Astro.props;
           return <FeatureCenteredCard content={section} />;
         case "sections.our-programs":
           return <OurPrograms content={section} />;
+        case "sections.steps":
+          return <Steps content={section} />;
         default:
           return null;
       }
