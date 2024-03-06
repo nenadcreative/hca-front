@@ -33,7 +33,8 @@ const { content } = Astro.props;
           return <CTAContact content={section} />;
         case "sections.list":
           return <List content={section} />;
-
+        case "sections.program-table-simple":
+          return <ProgramTableSimple content={section} />;
         default:
           return null;
       }
