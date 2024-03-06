@@ -1,34 +1,28 @@
 ---
 import Container from "../layouts/Container.astro";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
-
+import TwoColTable from "../components/TwoColTable.astro";
 const { content } = Astro.props;
 
 console.log(content);
 
 ---
 
-<section class=" py-24 relative">
+<section class=" py-24 relative bg-gray">
   <div class=" absolute top-0 right-2 lg:right-24 bg-brand-blue h-6 w-[250px]"></div>
   <div class=" absolute bottom-0 right-2 lg:right-24 bg-brand-yellow h-6 w-[250px]"></div>
   <Container>
-    <div class=" max-w-[800px] mx-auto mb-14">
+    <div class=" max-w-[800px] mx-auto mb-14 text-center">
   {
       content.tagline && (
-        <p class="mb-4 tagline text-brand-blue text-center">{content.tagline}</p>
+        <p class="mb-4 tagline text-brand-blue">{content.tagline}</p>
       )
     }
-    <h2 class=" text-center mb-5">{content.title}</h2>
+    <h2 class="mb-5">{content.title}</h2>
     <BlocksRenderer content={content.description} />
 
 </div>
-<div>
-  {
-    content.table.map((row) => (
-      <p>{row.programTitle}</p>
-    ))
-  }
-</div>
+<TwoColTable content={content.table}></TwoColTable>
   
   </Container>
 </section>
