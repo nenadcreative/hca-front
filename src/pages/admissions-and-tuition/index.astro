@@ -1,0 +1,28 @@
+---
+import fetchApi from "../../lib/strapi";
+import type Page from "../../interfaces/page";
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../layouts/Container.astro";
+
+const query = `admissions-and-tuitions?populate=deep`;
+const pagesData = await fetchApi<Page[]>({
+  endpoint: query, // the content type to fetch
+  wrappedByKey: "data", // the key to unwrap the response
+});
+
+console.log(pagesData);
+---
+
+<Layout title="Admissions">
+  <Container>
+    <h1>Admissions and Tuitions</h1>
+    <p class="mb-8">This page will be deleted once everything is developed</p>
+
+    {
+      pagesData.map((page) => {
+        const link = `/admissions-and-tuition/${page.attributes.slug}`;
+        return <a href={link}>{page.attributes.title}</a>;
+      })
+    }
+  </Container>
+</Layout>

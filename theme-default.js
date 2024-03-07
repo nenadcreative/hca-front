@@ -52,6 +52,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
+        'sm': '0px 8px 8px -4px rgba(253, 199, 47, 0.03), 0px 20px 24px -4px rgba(253, 199, 47, 0.08)',
         'lg': '0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)',
       },
       spacing: {
