@@ -1,10 +1,50 @@
 ---
 import Container from "../layouts/Container.astro";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import ButtonLink from "../components/ButtonLink.astro";
+
 const { content } = Astro.props;
+
+const bg = content.background;
+const backgrounds = {
+  gray: "bg-gray",
+  white: "bg-white",
+  dark: "bg-dark-1",
+};
+
+console.log(content);
+
+
 ---
 
-<section>
-  <Container>
-    <h2>Feature Centered Card</h2>
+<section class=` ${backgrounds[bg]} bg-cover bg-no-repeat ${content.background === 'dark' ? '' : 'bg-feature-bg'}`>
+  <Container classes=" py-24 relative">
+    <div class=` rounded-lg max-w-[960px] mx-auto px-5 py-10 md:p-10 lg:p-20 ${content.background === 'dark' ? 'shadow-sm' : 'shadow-lg'}`>
+      {
+        content.tagline && (
+          <p class={` mb-4 tagline text-brand-blue ${content.background === 'dark' ? 'text-brand-yellow' : 'text-brand-blue'} `}>{content.tagline}</p>
+        )
+      }
+    <h2 class=` mb-4 ${content.background === 'dark' ? 'text-white' : 'text-dark-1'}`>{content.title}</h2>
+    <div class=` mb-9 ${content.background === 'dark' ? 'text-white' : 'text-dark-2'}`>
+    <BlocksRenderer content={content.description} />
+    </div>
+    {
+      content.button && (
+        <div class="mt-6">
+          <ButtonLink
+            button={content.button}
+            target={content.button.target}
+            variant={content.button.type}
+          />
+        </div>
+      )
+    }
+
+
+
+    </div>
+    { content.background === 'dark' ? (<div class="absolute top-0 left-0 bg-brand-blue h-6 w-[250px]"></div>
+    <div class="absolute bottom-0 right-0 bg-brand-yellow h-6 w-[250px]"></div>) : ''}
   </Container>
 </section>
