@@ -11,8 +11,6 @@ const layouts = {
   "content-image": "lg:flex-row-reverse",
 };
 
-console.log(content);
-
 const bg = content.background;
 
 const backgrounds = {
@@ -27,7 +25,7 @@ const backgrounds = {
       class=`flex flex-col gap-8 lg:gap-16 justify-between  md:items-center ${layouts[layout]}`
     >
       <div
-        class="w-full md:max-w-lg lg:max-h-[30rem] rounded-3xl overflow-hidden"
+        class="w-full md:max-w-lg lg:max-h-[30rem] rounded-lg overflow-hidden"
       >
         <Image
           src={content.image.data.attributes.url}
