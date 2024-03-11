@@ -2,14 +2,14 @@
 const { button, variant = "primary" } = Astro.props;
 const variants = {
   primary: "bg-brand-blue hover:bg-brand-blue2 text-white",
-  secondary: "bg-brand-yellow hover:bg-brand-yellowDark text-dark1 ",
+  secondary: "bg-brand-yellow hover:bg-brand-yellowDark text-dark-1 ",
   textLink:
     "group underline hover:no-underline decoration-brand-yellow decoration-2 underline-offset-8 text-dark1 flex items-center gap-2 pl-0",
 };
 ---
 
 {button.file.data !== null ? (<a
-  class=` px-8 py-4 rounded-lg font-semibold text-body-md  inline-block ${variants[variant]}`
+  class=` px-8 py-4 rounded-lg min-w-[200px] inline-flex justify-center font-semibold text-body-md  inline-block ${variants[variant]}`
   href={button.file.data.attributes.url}
   target="_blank"
   >{button.text}
@@ -32,7 +32,7 @@ const variants = {
     )
   }
 </a>):(<a
-  class=` px-8 py-4 rounded-lg font-semibold text-body-md  inline-block ${variants[variant]}`
+  class=` px-8 py-4 rounded-lg min-w-[200px] inline-flex justify-center font-semibold text-body-md  inline-block ${variants[variant]}`
   href={button.link}
   target="_self"
   >{button.text}
