@@ -15,9 +15,9 @@ const { content } = Astro.props;
         )
       }
       <h2 class="mb-6">{content.title}</h2>
-      <div class="mb-14 font-semibold">
-        <BlocksRenderer content={content.description} />
-      </div>
+      <p class="mb-14 font-semibold">
+        {content.description}
+      </p>
     </div>
     <div class="grid md:grid-cols-2 gap-y-10 gap-x-8 mb-20">
       {
