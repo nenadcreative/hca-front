@@ -26,7 +26,7 @@ const { content } = Astro.props;
           <p class="tagline text-brand-yellow mb-2">{content.tagline}</p>
         )
       }
-      <h2 class="mb-5">CTA Contact</h2>
+      <h2 class="mb-5">{content.title}</h2>
 
       <div class="mb-10"><BlocksRenderer content={content.description} /></div>
       <div

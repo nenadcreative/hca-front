@@ -3,8 +3,6 @@ import Container from "../layouts/Container.astro";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import TwoColTable from "../components/TwoColTable.astro";
 const { content } = Astro.props;
-
-console.log(content);
 ---
 
 <section class="bg-gray">
@@ -21,6 +19,5 @@ console.log(content);
     <TwoColTable content={content.table} />
     <div class="absolute top-0 right-0 bg-brand-blue h-6 w-[250px]"></div>
     <div class="absolute bottom-0 right-0 bg-brand-yellow h-6 w-[250px]"></div>
-
   </Container>
 </section>
