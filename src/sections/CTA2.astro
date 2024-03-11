@@ -24,38 +24,37 @@ const backgrounds = {
 <section class=`${backgrounds[bg]} py-24 bg-section-bg bg-cover bg-no-repeat	`>
   <Container>
     <div
-      class=`flex flex-col gap-8 lg:gap-16 justify-between  md:items-center ${layouts[layout]}`
+
+      class=`flex flex-col gap-8 md:items-center lg:items-end ${layouts[layout]}`
     >
-      <div
-        class="w-full md:max-w-lg lg:max-h-[30rem] rounded-3xl overflow-hidden"
-      >
+      <div class="w-full md:w-1/2">
+
         <Image
           src={content.image.data.attributes.url}
           inferSize
           alt={content.title}
-          class="w-full h-full object-cover"
+
+          class="w-full h-full object-cover rounded-3xl"
+
         />
       </div>
 
       <div
-        class="w-full lg:max-w-2xl md:py-16 py-8 md:px-8 px-4 rounded-lg shadow-lg bg-white"
+        class="w-full md:w-1/2 md:py-16 py-8 md:px-8 px-4 rounded-lg shadow-lg bg-white"
       >
-        {
-          content.tagline && (
-            <p class="mb-4 tagline text-dark-1">{content.tagline}</p>
-          )
-        }
+        <p class="mb-4 tagline text-dark-1">{content.tagline}</p>
         <h2 class="mb-4 text-brand-blue">{content.title}</h2>
-        <div class="mb-9 font-semibold">
-          <BlocksRenderer content={content.description} />
-        </div>
+        <div class="mb-9"><BlocksRenderer content={content.description} /></div>
+
         {
           content.button && (
             <div class="mt-6">
               <ButtonLink
                 button={content.button}
                 target={content.button.target}
-                variant={content.button.type}
+
+                variant="secondary"
+
               />
             </div>
           )

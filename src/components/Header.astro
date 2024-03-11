@@ -7,10 +7,11 @@ import logo from "../assets/logo.svg";
 <header class="bg-dark-1 text-white py-2">
   <Container classes="flex items-center justify-between">
     <a href="/">
-      <Image src={logo} alt="hca logo" />
+      <Image src={logo} alt="hca logo" loading="eager" />
     </a>
-    <nav>
+    <nav class="flex gap-4">
       <a href="/admissions-and-tuition">Admissions and Tuition Pages</a>
+      <a href="/alumni">Alumni Pages</a>
     </nav>
   </Container>
 </header>

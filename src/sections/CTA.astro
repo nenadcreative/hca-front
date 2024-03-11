@@ -4,62 +4,53 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import ButtonLink from "../components/ButtonLink.astro";
 import { Image } from "astro:assets";
 
-
 const { content } = Astro.props;
-
-
-console.log(content);
 
 ---
 
-<section class=" py-24 relative">
-    <Image
+<section class="py-24 relative">
+  <Image
     src={content.bgImage.data.attributes.url}
     alt=""
     inferSize
     class="absolute w-full h-full top-0 object-cover -z-10"
   />
   <Container classes="relative z-10">
-  
+    <div
+      class="bg-dark-1 pt-10 md:pt-20 pb-8 md:pb-16 px-4 md:px-8 rounded-lg max-w-[720px] mx-auto lg:mx-0 lg:ml-auto relative"
+    >
+      <div
+        class="absolute hidden sm:block top-0 left-4 md:left-8 bg-brand-blue w-52 h-5"
+      >
+      </div>
+      <div
+        class="absolute hidden sm:block bottom-0 right-4 md:right-8 bg-brand-yellow w-52 h-5"
 
-    <div class=" bg-dark-1 pt-10 md:pt-20 pb-8 md:pb-16 px-4 md:px-8 rounded-lg max-w-[720px] ml-auto relative">  
-      <div class=" absolute top-0 left-4 md:left-8 bg-brand-blue w-52 h-5"></div>
-      <div class=" absolute bottom-0 right-4 md:right-8 bg-brand-yellow w-52 h-5"></div>
+      >
+      </div>
       {
         content.tagline && (
           <p class="mb-4 tagline text-brand-yellow">{content.tagline}</p>
         )
       }
-        <h2 class=" text-white mb-6">{content.title}</h2>
-        <div class="mb-12 text-white">
-          <BlocksRenderer content={content.description} />
-        </div>
-        <div class=" flex flex-col md:flex-row items-start gap-4">
-          {
-            content.button.map((btn) => (
-            
-            btn && (
+      <h2 class="text-white mb-6">{content.title}</h2>
+      <div class="mb-12 text-white">
+        <BlocksRenderer content={content.description} />
+      </div>
+      <div class="flex flex-col md:flex-row items-start gap-4">
+        {
+          content.button.map(
+            (btn) =>
+              btn && (
                 <ButtonLink
                   button={btn}
                   target={btn.target}
                   variant={btn.type}
                 />
-              
-            )
-             ))
-  
-  
-          }
-
-
-
-        </div>
-
-       
-        
-
-
-
+              )
+          )
+        }
+      </div>
     </div>
   </Container>
 </section>

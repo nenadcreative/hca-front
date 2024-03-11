@@ -25,9 +25,9 @@ const backgrounds = {
 ---
 
 <section class=`${backgrounds[bg]}`>
-  <Container>
+  <Container classes="py-20 relative">
     <div
-      class=`flex flex-col gap-8 lg:gap-16 items-center py-20 relative  ${layouts[layout]}`
+      class=`flex flex-col gap-8 lg:gap-16 items-center md:items-start lg:items-center   ${layouts[layout]}`
     >
       <div class="w-full md:w-1/2">
         <Image
@@ -54,14 +54,14 @@ const backgrounds = {
           )
         }
       </div>
-      {
-        content.decoration && (
-          <>
-            <div class="bg-brand-blue w-1/4 lg:w-[250px] h-4 lg:h-6 absolute top-0 right-2 lg:right-4" />
-            <div class="bg-brand-yellow w-1/4 lg:w-[250px] h-4 lg:h-6 absolute bottom-0 right-2 lg:right-4" />
-          </>
-        )
-      }
     </div>
+    {
+      content.decoration && (
+        <>
+          <div class="bg-brand-blue w-[250px] h-6 absolute top-0 right-2 lg:right-4" />
+          <div class="bg-brand-yellow w-[250px] h-6 absolute bottom-0 right-2 lg:right-4" />
+        </>
+      )
+    }
   </Container>
 </section>

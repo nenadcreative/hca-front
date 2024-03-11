@@ -25,6 +25,10 @@ module.exports = {
       white: {
         DEFAULT: "#FFFFFF",
       },
+      transparent: {
+        DEFAULT: "transparent",
+      },
+     
     },
     fontSize: {
       "body-xs": ["0.875rem", "1.5"],

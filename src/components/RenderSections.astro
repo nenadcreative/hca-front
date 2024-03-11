@@ -12,6 +12,8 @@ import FeatureCenteredCard from "../sections/FeatureCenteredCard.astro";
 import OurPrograms from "../sections/OurPrograms.astro";
 import Steps from "../sections/Steps.astro";
 import Feature2Cards from "../sections/Feature2Cards.astro";
+import TableSection3Cols from "../sections/TableSection3Cols.astro";
+import FeatureIconCards from "../sections/FeatureIconCards.astro";
 
 const { content } = Astro.props;
 ---
@@ -45,8 +47,12 @@ const { content } = Astro.props;
           return <OurPrograms content={section} />;
         case "sections.steps":
           return <Steps content={section} />;
+        case "sections.table-section-3-cols":
+          return <TableSection3Cols content={section} />;
         case "sections.feature-2-cards":
           return <Feature2Cards content={section} />;
+        case "sections.feature-icon-cards":
+          return <FeatureIconCards content={section} />;
         default:
           return null;
       }
