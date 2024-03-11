@@ -15,7 +15,7 @@ const { content } = Astro.props;
   />
   <Container classes="relative z-10">
     <div
-      class="bg-dark-1 max-w-[48.75rem] flex flex-col items-center relative pt-20 pb-16 px-10 rounded-lg"
+      class="bg-dark-1 mx-auto lg:mx-0 max-w-[48.75rem] flex flex-col items-center relative pt-20 pb-16 px-10 rounded-lg"
     >
       <div
         class="w-[206px] h-5 bg-brand-blue absolute top-0 right-1/2 translate-x-1/2"
@@ -42,7 +42,9 @@ const { content } = Astro.props;
                     alt={contact.label}
                     inferSize
                   />
-                  <p>{contact.label}</p>
+                  <p class=" font-display text-display-md font-bold">
+                    {contact.label}
+                  </p>
                 </div>
 
                 <a href={contact.link}>{contact.text}</a>
