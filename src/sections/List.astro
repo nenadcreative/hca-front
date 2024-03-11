@@ -1,0 +1,64 @@
+---
+import Container from "../layouts/Container.astro";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import ButtonLink from "../components/ButtonLink.astro";
+
+const { content } = Astro.props;
+---
+
+<section class="py-24">
+  <Container>
+    <div class="max-w-[800px]">
+      {
+        content.tagline && (
+          <p class="mb-4 tagline text-brand-blue">{content.tagline}</p>
+        )
+      }
+      <h2 class="mb-6">{content.title}</h2>
+      <p class="mb-14 font-semibold">
+        {content.description}
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-y-10 gap-x-8 mb-20">
+      {
+        content.list.map((item) => (
+          <div class=" flex flex-row items-start gap-3">
+            <div class=" w-6 h-8">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="30"
+                viewBox="0 0 22 30"
+                fill="none"
+              >
+                <path
+                  d="M12.9059 9.9339C12.6068 9.9339 12.3643 9.69466 12.3643 9.39958V5.87305H9.65623V9.39958C9.65623 9.69466 9.41373 9.9339 9.11463 9.9339H5.54004V12.6055H9.11463C9.41373 12.6055 9.65623 12.8448 9.65623 13.1398V16.6664H12.3643V13.1398C12.3643 12.8448 12.6068 12.6055 12.9059 12.6055H16.4805V9.9339H12.9059Z"
+                  fill="#00A5E4"
+                />
+                <path
+                  d="M21.4801 0H0.541613C0.242512 0 8.63692e-06 0.239243 8.63692e-06 0.534323V19.0967C-0.00080377 19.2387 0.0557259 19.3752 0.157074 19.4761L10.6263 29.8419C10.8369 30.0515 11.1799 30.0529 11.3923 29.845C11.3933 29.844 11.3944 29.8429 11.3954 29.8419L21.8429 19.4707C21.9443 19.3699 22.0008 19.2334 22 19.0914V0.534323C22.0003 0.247392 21.7707 0.0114879 21.4801 0ZM17.5534 13.1176C17.5534 13.4127 17.3109 13.652 17.0118 13.652H13.4372V17.1785C13.4372 17.4736 13.1947 17.7128 12.8956 17.7128H9.10438C8.80528 17.7128 8.56278 17.4736 8.56278 17.1785V13.652H4.98819C4.68909 13.652 4.44658 13.4127 4.44658 13.1176V9.37737C4.44658 9.08229 4.68909 8.84305 4.98819 8.84305H8.56278V5.31651C8.56278 5.02143 8.80528 4.78219 9.10438 4.78219H12.8956C13.1947 4.78219 13.4372 5.02143 13.4372 5.31651V8.84305H17.0118C17.3109 8.84305 17.5534 9.08229 17.5534 9.37737V13.1176Z"
+                  fill="#00A5E4"
+                />
+              </svg>
+            </div>
+            <div>
+              <p class=" font-bold text-display-sm text-dark-1 mb-2 font-display">
+                {item.title}
+              </p>
+              <BlocksRenderer content={item.description} />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    {
+      content.button && (
+        <ButtonLink
+          button={content.button}
+          target={content.button.target}
+          variant={content.button.type}
+        />
+      )
+    }
+  </Container>
+</section>

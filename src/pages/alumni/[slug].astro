@@ -1,0 +1,26 @@
+---
+import fetchApi from "../../lib/strapi";
+import type Page from "../../interfaces/page";
+import Layout from "../../layouts/Layout.astro";
+import RenderSections from "../../components/RenderSections.astro";
+
+export async function getStaticPaths() {
+  const query = `alumnus?populate=deep`;
+  const pages = await fetchApi<Page[]>({
+    endpoint: query,
+    wrappedByKey: "data",
+  });
+
+  return pages.map((page) => ({
+    params: { slug: page.attributes.slug },
+    props: page,
+  }));
+}
+type Props = Page;
+
+const page = Astro.props;
+---
+
+<Layout title={page.attributes.title}>
+  <RenderSections content={page.attributes.sections} />
+</Layout>

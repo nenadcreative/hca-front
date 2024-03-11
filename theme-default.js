@@ -7,6 +7,7 @@ module.exports = {
       brand: {
         blue: "#00A5E4",
         blue2: "#0395CE",
+        blue3: "#0074A0",
         yellow: "#FDC72F",
         yellowDark: "#E4B32A",
       },
@@ -24,6 +25,10 @@ module.exports = {
       white: {
         DEFAULT: "#FFFFFF",
       },
+      transparent: {
+        DEFAULT: "transparent",
+      },
+     
     },
     fontSize: {
       "body-xs": ["0.875rem", "1.5"],
@@ -51,6 +56,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
+        'sm': '0px 8px 8px -4px rgba(253, 199, 47, 0.03), 0px 20px 24px -4px rgba(253, 199, 47, 0.08)',
         'lg': '0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)',
       },
       spacing: {

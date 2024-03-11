@@ -11,8 +11,6 @@ const layouts = {
   "content-image": "lg:flex-row-reverse",
 };
 
-console.log(content);
-
 const bg = content.background;
 
 const backgrounds = {
@@ -24,10 +22,10 @@ const backgrounds = {
 <section class=`${backgrounds[bg]} py-24 bg-section-bg bg-cover bg-no-repeat	`>
   <Container>
     <div
-      class=`flex flex-col gap-8 lg:gap-16 justify-between  md:items-center ${layouts[layout]}`
+      class=`flex flex-col gap-8 lg:gap-16 justify-between   ${layouts[layout]}`
     >
       <div
-        class="w-full md:max-w-lg lg:max-h-[30rem] rounded-3xl overflow-hidden"
+        class="w-full md:max-w-lg lg:max-h-[30rem] rounded-lg overflow-hidden"
       >
         <Image
           src={content.image.data.attributes.url}
@@ -55,7 +53,7 @@ const backgrounds = {
               <ButtonLink
                 button={content.button}
                 target={content.button.target}
-                variant="secondary"
+                variant={content.button.type}
               />
             </div>
           )
