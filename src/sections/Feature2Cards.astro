@@ -13,7 +13,8 @@ const backgrounds = {
 ---
 
 <section
-  class=`${backgrounds[bg]} bg-cover bg-no-repeat pb-24 pt-20 ${content.background === "white" ? "bg-feature-bg" : ""}`
+  class={`${backgrounds[bg]} bg-cover bg-no-repeat pb-24 pt-20 ${content.background === "white" ? "bg-feature-bg" : ""}`}
+
 >
   <Container>
     <div class="text-center mb-14 mx-auto max-w-[800px]">
@@ -35,7 +36,9 @@ const backgrounds = {
       {
         content.Card.map((card, index) => (
           <div class=" lg:w-1/2 w-full py-8 md:py-16 px-5 md:px-10 shadow-lg bg-white rounded-lg">
-            <div class=" mb-5 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+
+            <div class=" mb-5 flex flex-col sm:flex-row gap-3 items-start sm:items-center lg:items-start xl:items-center">
+
               {index === 0 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
