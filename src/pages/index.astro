@@ -11,6 +11,7 @@ const homeData = await fetchApi<Home>({
   endpoint: homequery, // the content type to fetch
   wrappedByKey: "data", // the key to unwrap the response
 });
+console.log(homeData);
 ---
 
 <Layout title="Home">
