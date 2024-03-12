@@ -14,6 +14,7 @@ import Steps from "../sections/Steps.astro";
 import Feature2Cards from "../sections/Feature2Cards.astro";
 import TableSection3Cols from "../sections/TableSection3Cols.astro";
 import FeatureIconCards from "../sections/FeatureIconCards.astro";
+import BasicContent from "../sections/BasicContent.astro";
 
 const { content } = Astro.props;
 ---
@@ -53,6 +54,8 @@ const { content } = Astro.props;
           return <Feature2Cards content={section} />;
         case "sections.feature-icon-cards":
           return <FeatureIconCards content={section} />;
+        case "sections.basic-content":
+          return <BasicContent content={section} />;
         default:
           return null;
       }
