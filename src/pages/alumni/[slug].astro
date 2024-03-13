@@ -5,7 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import RenderSections from "../../components/RenderSections.astro";
 
 export async function getStaticPaths() {
-  const query = `alumnus?populate=deep`;
+  const query = `alumnus?populate=deep,10`;
   const pages = await fetchApi<Page[]>({
     endpoint: query,
     wrappedByKey: "data",
