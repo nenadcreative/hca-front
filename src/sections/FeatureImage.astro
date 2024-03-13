@@ -30,12 +30,16 @@ const backgrounds = {
       class=`flex flex-col gap-8 lg:gap-16 items-center md:items-start lg:items-center   ${layouts[layout]}`
     >
       <div class="w-full md:w-1/2">
-        <Image
-          src={content.image.data.attributes.url}
-          inferSize
-          alt={content.title}
-          class="w-full h-full object-cover border-12 rounded-3xl border-brand-yellow"
-        />
+        {
+          content.image && (
+            <Image
+              src={content.image.data.attributes.url}
+              inferSize
+              alt={content.title}
+              class="w-full h-full object-cover border-12 rounded-3xl border-brand-yellow"
+            />
+          )
+        }
       </div>
       <div class="w-full md:w-1/2">
         <p class="tagline mb-2">{content.tagline}</p>
