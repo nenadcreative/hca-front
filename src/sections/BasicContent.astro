@@ -1,7 +1,55 @@
 ---
+import Container from "../layouts/Container.astro";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import ButtonLink from "../components/ButtonLink.astro";
+
 const { content } = Astro.props;
+
+const bg = content.background;
+
+const backgrounds = {
+  gray: "bg-gray",
+  white: "bg-white",
+};
+
+console.log(content);
 ---
 
-<section>
-  <h2>Basic Content Section</h2>
+<section class=` ${backgrounds[bg]}`>
+  <Container
+    classes=` relative ${content.decoration === true ? "py-[120px]" : "py-24"} `
+  >
+    <div class="mx-auto max-w-[800px] text-center">
+      {
+        content.tagline && (
+          <p class="mb-2 tagline text-brand-blue">{content.tagline}</p>
+        )
+      }
+      <h2 class="mb-8">{content.title}</h2>
+
+      <BlocksRenderer content={content.description} />
+
+      {
+        content.button && (
+          <div class="mt-8">
+            <ButtonLink
+              button={content.button}
+              target={content.button.target}
+              variant={content.button.type}
+            />
+          </div>
+        )
+      }
+    </div>
+    {
+      content.decoration === true ? (
+        <>
+          <div class="absolute top-0 right-0 bg-brand-blue h-6 w-[250px]" />
+          <div class="absolute bottom-0 right-0 bg-brand-yellow h-6 w-[250px]" />
+        </>
+      ) : (
+        ""
+      )
+    }
+  </Container>
 </section>
