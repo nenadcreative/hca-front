@@ -13,7 +13,7 @@ const backgrounds = {
   white: "bg-white",
 };
 
-console.log(content);
+console.log(content.cards.length);
 ---
 
 <section
@@ -41,7 +41,9 @@ console.log(content);
               inferSize
               alt={card.title}
             />
-            <p class=" mb-5 font-display text-display-md font-bold">
+            <p
+              class={` ${content.cards.length > 3 ? " text-display-sm " : "text-display-md"} mb-5 font-display  font-bold`}
+            >
               {card.title}
             </p>
             <BlocksRenderer content={card.description} />
