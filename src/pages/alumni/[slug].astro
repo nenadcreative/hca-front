@@ -4,7 +4,7 @@ import type Page from "../../interfaces/page";
 import Layout from "../../layouts/Layout.astro";
 import RenderSections from "../../components/RenderSections.astro";
 import qs from "qs";
-import ButtonLink from "../../components/ButtonLink.astro";
+
 
 export async function getStaticPaths() {
   
@@ -46,7 +46,7 @@ const query = qs.stringify(
 type Props = Page;
 
 const page = Astro.props;
-console.log(page.attributes.sections);
+
 
 ---
 
