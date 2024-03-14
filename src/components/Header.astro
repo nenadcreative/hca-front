@@ -1,7 +1,17 @@
 ---
 import Container from "../layouts/Container.astro";
+import { Image } from "astro:assets";
+import logo from "../assets/logo.svg";
 ---
 
-<header class="bg-brand-blue py-4">
-  <Container>This is Header</Container>
+<header class="bg-dark-1 text-white py-2">
+  <Container classes="flex items-center justify-between">
+    <a href="/">
+      <Image src={logo} alt="hca logo" loading="eager" />
+    </a>
+    <nav class="flex gap-4">
+      <a href="/admissions-and-tuition">Admissions and Tuition Pages</a>
+      <a href="/alumni">Alumni Pages</a>
+    </nav>
+  </Container>
 </header>

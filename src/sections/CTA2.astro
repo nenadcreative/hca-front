@@ -7,8 +7,8 @@ import { Image } from "astro:assets";
 
 const layout = content.layout;
 const layouts = {
-  "image-content": "md:flex-row ",
-  "content-image": "md:flex-row-reverse",
+  "image-content": "sm:flex-row ",
+  "content-image": "sm:flex-row-reverse",
 };
 
 console.log(content);
@@ -24,16 +24,20 @@ const backgrounds = {
 <section class=`${backgrounds[bg]} py-24 bg-section-bg bg-cover bg-no-repeat	`>
   <Container>
     <div
+
       class=`flex flex-col gap-8 md:items-center lg:items-end ${layouts[layout]}`
     >
       <div
         class="w-full md:w-1/2 xl:h-[424px] xl:overflow-hidden xl:rounded-lg xl:relative"
       >
+
         <Image
           src={content.image.data.attributes.url}
           inferSize
           alt={content.title}
+
           class="w-full xl:absolute xl:top-0 object-cover rounded-lg"
+
         />
       </div>
 
@@ -43,6 +47,7 @@ const backgrounds = {
         <p class="mb-4 tagline text-dark-1">{content.tagline}</p>
         <h2 class="mb-4 text-brand-blue">{content.title}</h2>
         <div class="mb-9"><BlocksRenderer content={content.description} /></div>
+
         {
           content.button && (
             <div class="mt-6">

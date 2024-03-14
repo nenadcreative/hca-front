@@ -1,0 +1,36 @@
+---
+import {
+  formatDate,
+  formatDateFrom,
+  formatDateTo,
+  getMonthFromDate,
+} from "../lib";
+
+const { content } = Astro.props;
+
+---
+
+
+<div class=" rounded-lg overflow-hidden outline outline-1 outline-brand-blue max-w-[940px] mx-auto">
+    <div class=" py-5 bg-brand-blue text-center font-display font-bold text-white display-sm">Table of Program Dates</div>
+    {content.map((row, index) => {
+      const month1 = getMonthFromDate(row.startDate);
+      const month2 = getMonthFromDate(row.endDate);
+      
+      return (
+      
+        
+            <table class=" w-full divide-x divide-brand-blue">
+
+<tr>
+  <td class={`w-1/2 border-r border-brand-blue px-4 font-semibold text-center py-6 ${index % 2 === 1 ? 'bg-transparent' : 'bg-white'}`}>{row.programTitle} </td>
+  <td class={`w-1/2 px-4 font-semibold text-center py-6 ${index % 2 === 1 ? 'bg-transparent' : 'bg-white'}`}>{month1 === month2
+            ? `${formatDateFrom(row.startDate)} - ${formatDateTo(row.endDate)}`
+            : `${formatDateFrom(row.startDate)} - ${formatDate(row.endDate)}`}</td>
+  </tr>
+</table>
+
+        
+      );
+    })}
+  </div>

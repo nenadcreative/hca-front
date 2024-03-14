@@ -6,6 +6,19 @@ import FeatureImage from "../sections/FeatureImage.astro";
 import CTA2 from "../sections/CTA2.astro";
 import CTA from "../sections/CTA.astro";
 import CTAContact from "../sections/CTAContact.astro";
+import List from "../sections/List.astro";
+import ProgramTableSimple from "../sections/ProgramTableSimple.astro";
+import FeatureCenteredCard from "../sections/FeatureCenteredCard.astro";
+import OurPrograms from "../sections/OurPrograms.astro";
+import Steps from "../sections/Steps.astro";
+import Feature2Cards from "../sections/Feature2Cards.astro";
+import TableSection3Cols from "../sections/TableSection3Cols.astro";
+import FeatureIconCards from "../sections/FeatureIconCards.astro";
+import BasicContent from "../sections/BasicContent.astro";
+import ContactInformation from "../sections/ContactInformation.astro";
+import ListBasic from "../sections/ListBasic.astro";
+import ResourcesList from "../sections/ResourcesList.astro";
+import CardList from "../sections/CardList.astro";
 
 const { content } = Astro.props;
 ---
@@ -29,6 +42,32 @@ const { content } = Astro.props;
           return <CTA2 content={section} />;
         case "sections.cta-contact":
           return <CTAContact content={section} />;
+        case "sections.list":
+          return <List content={section} />;
+        case "sections.program-table-simple":
+          return <ProgramTableSimple content={section} />;
+        case "sections.feature-centered-card":
+          return <FeatureCenteredCard content={section} />;
+        case "sections.our-programs":
+          return <OurPrograms content={section} />;
+        case "sections.steps":
+          return <Steps content={section} />;
+        case "sections.table-section-3-cols":
+          return <TableSection3Cols content={section} />;
+        case "sections.feature-2-cards":
+          return <Feature2Cards content={section} />;
+        case "sections.feature-icon-cards":
+          return <FeatureIconCards content={section} />;
+        case "sections.basic-content":
+          return <BasicContent content={section} />;
+        case "sections.contact-information":
+          return <ContactInformation content={section} />;
+        case "sections.list-basic":
+          return <ListBasic content={section} />;
+        case "sections.resources-list":
+          return <ResourcesList content={section} />;
+        case "sections.card-list":
+          return <CardList content={section} />;
         default:
           return null;
       }

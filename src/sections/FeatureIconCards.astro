@@ -1,0 +1,66 @@
+---
+import Container from "../layouts/Container.astro";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import ButtonLink from "../components/ButtonLink.astro";
+import { Image } from "astro:assets";
+
+const { content } = Astro.props;
+
+const bg = content.background;
+
+const backgrounds = {
+  gray: "bg-gray",
+  white: "bg-white",
+};
+
+
+---
+
+<section
+  class=` ${backgrounds[bg]} text-center bg-cover bg-no-repeat bg-feature-bg pt-20 pb-24`
+>
+  <Container>
+    <div class="max-w-[800px] mx-auto text-center">
+      {
+        content.tagline && (
+          <p class="mb-2 tagline text-brand-blue">{content.tagline}</p>
+        )
+      }
+      <h2 class="mb-5">{content.title}</h2>
+      {content.description && <BlocksRenderer content={content.description} />}
+    </div>
+    <div
+
+      class="mt-14 mb-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 sm:gap-10"
+    >
+      {
+        content.cards.map((card) => (
+          <div class=" flex flex-col items-center bg-white rounded-lg px-4 sm:px-7 py-6 sm:py-12 shadow-lg">
+            <Image
+              src={card.icon.data.attributes.url}
+              class="w-20 h-20 mb-3 object-cover rounded-xl"
+              inferSize
+              alt={card.title}
+            />
+            <p
+              class={` ${content.cards.length > 3 ? " text-display-sm " : "text-display-md"} mb-5 font-display  font-bold`}
+            >
+              {card.title}
+            </p>
+
+            <BlocksRenderer content={card.description} />
+          </div>
+        ))
+      }
+    </div>
+    {
+      content.button && (
+        <ButtonLink
+          button={content.button}
+          target={content.button.target}
+          variant={content.button.type}
+        />
+      )
+    }
+  </Container>
+</section>
