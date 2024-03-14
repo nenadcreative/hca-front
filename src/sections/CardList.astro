@@ -1,7 +1,42 @@
 ---
+import Container from "../layouts/Container.astro";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+
 const { content } = Astro.props;
+
+const bg = content.background;
+
+const backgrounds = {
+  gray: "bg-gray",
+  white: "bg-white",
+};
 ---
 
-<section>
-  <h2>Card List Section</h2>
+<section class=` ${backgrounds[bg]} py-20`>
+  <Container>
+    <div class="max-w-[800px] mx-auto text-center mb-14">
+      {
+        content.tagline && (
+          <p class="mb-2 tagline text-brand-blue">{content.tagline}</p>
+        )
+      }
+      <h2 class="mb-5">{content.title}</h2>
+      <BlocksRenderer content={content.description} />
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      {
+        content.cards.map((card) => (
+          <div class=" rounded-lg shadow-lg bg-white p-5 md:p-10">
+            {card.tagline && (
+              <p class="mb-3 tagline text-brand-blue">{card.tagline}</p>
+            )}
+            <p class=" font-display text-display-md font-bold mb-5">
+              {card.title}
+            </p>
+            <BlocksRenderer content={card.description} />
+          </div>
+        ))
+      }
+    </div>
+  </Container>
 </section>
