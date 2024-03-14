@@ -47,7 +47,9 @@ const { content } = Astro.props;
                   </p>
                 </div>
 
-                <a href={contact.link}>{contact.text}</a>
+                <a class=" text-body-lg font-semibold" href={contact.link}>
+                  {contact.text}
+                </a>
               </div>
             );
           })

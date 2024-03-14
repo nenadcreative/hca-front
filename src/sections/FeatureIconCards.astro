@@ -13,7 +13,7 @@ const backgrounds = {
   white: "bg-white",
 };
 
-console.log(content.cards.length);
+
 ---
 
 <section
@@ -30,6 +30,7 @@ console.log(content.cards.length);
       {content.description && <BlocksRenderer content={content.description} />}
     </div>
     <div
+
       class="mt-14 mb-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 sm:gap-10"
     >
       {
@@ -46,6 +47,7 @@ console.log(content.cards.length);
             >
               {card.title}
             </p>
+
             <BlocksRenderer content={card.description} />
           </div>
         ))
