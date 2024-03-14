@@ -1,25 +1,32 @@
 ---
 import Container from "../layouts/Container.astro";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
-import ButtonLink from "../components/ButtonLink.astro";
 
 const { content } = Astro.props;
+
+const bg = content.background;
+
+const backgrounds = {
+  gray: "bg-gray",
+  white: "bg-white",
+};
+
+console.log(content);
 ---
 
-<section class="py-24">
+<section class=` ${backgrounds[bg]} py-24`>
   <Container>
-    <div class="max-w-[800px]">
+    <div class="max-w-[800px] mr-auto">
       {
         content.tagline && (
           <p class="mb-4 tagline text-brand-blue">{content.tagline}</p>
         )
       }
+
       <h2 class="mb-6">{content.title}</h2>
-      <p class="mb-14 font-semibold text-body-lg">
-        {content.description}
-      </p>
+      <p class="text-body-lg font-semibold mb-14">{content.description}</p>
     </div>
-    <div class="grid md:grid-cols-2 gap-y-10 gap-x-8 mb-20">
+    <div class="grid md:grid-cols-2 gap-y-10 gap-x-8">
       {
         content.list.map((item) => (
           <div class=" flex flex-row items-start gap-3">
@@ -42,23 +49,11 @@ const { content } = Astro.props;
               </svg>
             </div>
             <div>
-              <p class=" font-bold text-display-sm text-dark-1 mb-2 font-display">
-                {item.title}
-              </p>
-              <BlocksRenderer content={item.description} />
+              <p class=" font-semibold">{item.title}</p>
             </div>
           </div>
         ))
       }
     </div>
-    {
-      content.button && (
-        <ButtonLink
-          button={content.button}
-          target={content.button.target}
-          variant={content.button.type}
-        />
-      )
-    }
   </Container>
 </section>

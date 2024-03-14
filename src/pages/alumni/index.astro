@@ -4,22 +4,22 @@ import type Page from "../../interfaces/page";
 import Layout from "../../layouts/Layout.astro";
 import Container from "../../layouts/Container.astro";
 
-const query = `admissions-and-tuitions?populate=deep`;
+const query = `alumnus?populate=deep`;
 const pagesData = await fetchApi<Page[]>({
   endpoint: query, // the content type to fetch
   wrappedByKey: "data", // the key to unwrap the response
 });
 ---
 
-<Layout title="Admissions">
+<Layout title="Alumni">
   <Container>
-    <h1>Admissions and Tuitions</h1>
+    <h1>Alumni Pages</h1>
     <p class="mb-8">This page will be deleted once everything is developed</p>
 
     <div class="flex flex-col gap-4">
       {
         pagesData.map((page) => {
-          const link = `/admissions-and-tuition/${page.attributes.slug}`;
+          const link = `/alumni/${page.attributes.slug}`;
           return <a href={link}>{page.attributes.title}</a>;
         })
       }
