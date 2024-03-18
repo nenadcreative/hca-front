@@ -1,5 +1,6 @@
 ---
 import Container from "../layouts/Container.astro"
+import AccordionFAQ from '../components/Accordion.jsx'
 const {content} = Astro.props
 
 ---
@@ -7,5 +8,6 @@ const {content} = Astro.props
 <section>
     <Container>
 <h2>This is FAQ Component</h2>
+<AccordionFAQ client:load question='Example'>Content</AccordionFAQ>
     </Container>
 </section>
