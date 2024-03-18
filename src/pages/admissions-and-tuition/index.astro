@@ -9,6 +9,8 @@ const pagesData = await fetchApi<Page[]>({
   endpoint: query, // the content type to fetch
   wrappedByKey: "data", // the key to unwrap the response
 });
+
+
 ---
 
 <Layout title="Admissions">
@@ -16,13 +18,63 @@ const pagesData = await fetchApi<Page[]>({
     <h1>Admissions and Tuitions</h1>
     <p class="mb-8">This page will be deleted once everything is developed</p>
 
-    <div class="flex flex-col gap-4">
-      {
-        pagesData.map((page) => {
-          const link = `/admissions-and-tuition/${page.attributes.slug}`;
-          return <a href={link}>{page.attributes.title}</a>;
-        })
-      }
-    </div>
+    
+      <div class="mb-8">
+        <h2>General</h2>
+        <div class="flex flex-col gap-4">
+        { 
+          pagesData
+            .filter(page => page.attributes.category === 'general')
+            .map((page) => {
+              const link = `/admissions-and-tuition/${page.attributes.slug}`;
+              return <a href={link}>{page.attributes.title}</a>;
+            })
+        }
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <h2>Finances</h2>
+        <div class="flex flex-col gap-4">
+        { 
+          pagesData
+            .filter(page => page.attributes.category === 'finances')
+            .map((page) => {
+              const link = `/admissions-and-tuition/${page.attributes.slug}`;
+              return <a href={link}>{page.attributes.title}</a>;
+            })
+        }
+        </div>
+      </div>
+
+       <div class="mb-8">
+        <h2>Resident Admissions</h2>
+        <div class="flex flex-col gap-4">
+        {
+          pagesData
+            .filter(page => page.attributes.category === 'resident admissions')
+            .map((page) => {
+              const link = `/admissions-and-tuition/${page.attributes.slug}`;
+              return <a href={link}>{page.attributes.title}</a>;
+            })
+        }
+        </div>
+      </div>
+     
+      <div class="mb-8">
+        <h2>Online Admissions</h2>
+        <div class="flex flex-col gap-4">
+        {
+          pagesData
+            .filter(page => page.attributes.category === 'online admissions')
+            .map((page) => {
+              const link = `/admissions-and-tuition/${page.attributes.slug}`;
+              return <a href={link}>{page.attributes.title}</a>;
+            })
+        }
+        </div>
+      </div>
+      
+    
   </Container>
 </Layout>

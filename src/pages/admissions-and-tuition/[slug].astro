@@ -1,13 +1,37 @@
 ---
 import fetchApi from "../../lib/strapi";
+import qs from "qs";
 import type Page from "../../interfaces/page";
 import Layout from "../../layouts/Layout.astro";
 import RenderSections from "../../components/RenderSections.astro";
 
 export async function getStaticPaths() {
-  const query = `admissions-and-tuitions?populate=deep`;
+  const query = qs.stringify(
+  {
+    populate:{
+      SEO: { populate: "*" },
+      sections: {
+        populate: {
+        button: {populate:'*'},
+        cards:{populate:'*'},
+        Card:{populate:'*'},
+        image:{populate:'*'},
+        bgImage:{populate:"*"},
+        contactInfo:{populate:'*'},
+        steps:{populate:'*'},
+        table:{populate:'*'},
+        list:{populate:'*'},
+        contact:{populate:'*'}
+    }
+        
+      },
+  },
+ 
+  }
+);
+  const pageQuery = `admissions-and-tuitions?${query}`;
   const pages = await fetchApi<Page[]>({
-    endpoint: query,
+    endpoint: pageQuery,
     wrappedByKey: "data",
   });
 
