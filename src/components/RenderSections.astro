@@ -19,6 +19,7 @@ import ContactInformation from "../sections/ContactInformation.astro";
 import ListBasic from "../sections/ListBasic.astro";
 import ResourcesList from "../sections/ResourcesList.astro";
 import CardList from "../sections/CardList.astro";
+import FAQ from '../sections/FAQ.astro'
 
 const { content } = Astro.props;
 ---
@@ -68,6 +69,8 @@ const { content } = Astro.props;
           return <ResourcesList content={section} />;
         case "sections.card-list":
           return <CardList content={section} />;
+        case "sections.faq":
+          return <FAQ content={section} />;
         default:
           return null;
       }

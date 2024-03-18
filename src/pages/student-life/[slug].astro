@@ -1,0 +1,49 @@
+---
+import fetchApi from "../../lib/strapi";
+import type Page from "../../interfaces/page";
+import Layout from "../../layouts/Layout.astro";
+import RenderSections from "../../components/RenderSections.astro";
+import qs from "qs";
+
+
+export async function getStaticPaths() {
+  
+const query = qs.stringify(
+  {
+    populate:{
+      SEO: { populate: "*" },
+      sections: {
+        populate: {
+        button: {populate:'*'},
+        list:{populate:'*'}, 
+        faqs:{populate:'*'}, 
+    }
+        
+      },
+  },
+ 
+  }
+);
+
+  const pageQuery = `student-lives?${query}`;
+  const pages = await fetchApi<Page[]>({
+    endpoint: pageQuery,
+    wrappedByKey: "data",
+  });
+
+  return pages.map((page) => ({
+    params: { slug: page.attributes.slug },
+    props: page,
+  }));
+}
+type Props = Page;
+
+const page = Astro.props;
+
+
+---
+
+<Layout title={page.attributes.title}>
+ <RenderSections content={page.attributes.sections} /> 
+ 
+</Layout>
