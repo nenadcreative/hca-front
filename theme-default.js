@@ -1,3 +1,5 @@
+/** @format */
+
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 // Example preset
@@ -28,7 +30,6 @@ module.exports = {
       transparent: {
         DEFAULT: "transparent",
       },
-     
     },
     fontSize: {
       "body-xs": ["0.875rem", "1.5"],
@@ -55,9 +56,31 @@ module.exports = {
       black: "900",
     },
     extend: {
+      keyframes: {
+        slideDown: {
+          "0%": {
+            height: 0,
+          },
+          "100%": {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        slideUp: {
+          "0%": {
+            height: "var(--radix-accordion-content-height)",
+          },
+          "100%": {
+            height: 0,
+          },
+        },
+      },
+      animation: {
+        slideDown: "slideDown 500ms cubic-bezier(0.87, 0, 0.13, 1)",
+        slideUp: "slideUp 500ms cubic-bezier(0.87, 0, 0.13, 1)",
+      },
       boxShadow: {
-        'sm': '0px 8px 8px -4px rgba(253, 199, 47, 0.03), 0px 20px 24px -4px rgba(253, 199, 47, 0.08)',
-        'lg': '0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)',
+        sm: "0px 8px 8px -4px rgba(253, 199, 47, 0.03), 0px 20px 24px -4px rgba(253, 199, 47, 0.08)",
+        lg: "0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08)",
       },
       spacing: {
         18: "4.5rem",

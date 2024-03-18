@@ -1,13 +1,31 @@
 ---
-import Container from "../layouts/Container.astro"
-import AccordionFAQ from '../components/Accordion.jsx'
-const {content} = Astro.props
+import Container from "../layouts/Container.astro";
+import AccordionFAQ from "../components/Accordion.jsx";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
+const { content } = Astro.props;
+console.log(content);
 ---
 
-<section>
-    <Container>
-<h2>This is FAQ Component</h2>
-<AccordionFAQ client:load question='Example'>Content</AccordionFAQ>
-    </Container>
+<section class="py-20 bg-section-bg bg-no-repeat bg-cover bg-fixed">
+  <Container>
+    <div class="max-w-[800px] mx-auto text-center">
+      {
+        content.tagline && (
+          <p class="mb-2 tagline text-brand-blue">{content.tagline}</p>
+        )
+      }
+      <h2 class="mb-8">{content.title}</h2>
+      <BlocksRenderer content={content.description} />
+    </div>
+    <div class="max-w-[840px] mx-auto mt-12 flex flex-col gap-9">
+      {
+        content.faqs.map((faq) => (
+          <AccordionFAQ client:load question={faq.questions}>
+            <BlocksRenderer content={faq.answer} />
+          </AccordionFAQ>
+        ))
+      }
+    </div>
+  </Container>
 </section>
