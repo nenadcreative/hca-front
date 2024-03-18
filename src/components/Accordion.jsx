@@ -12,7 +12,7 @@ const AccordionFAQ = ({ question, children }) => (
     collapsible
   >
     <AccordionItem
-      className=" bg-white shadow-lg rounded-lg relative group"
+      className=" bg-white shadow-lg rounded-lg relative group animate-slide"
       value={question}
     >
       <AccordionTrigger className="">
@@ -83,7 +83,7 @@ const AccordionTrigger = React.forwardRef(
             height="10"
             viewBox="0 0 18 10"
             fill="none"
-            className=" group-data-[state=open]:rotate-180"
+            className=" group-data-[state=open]:rotate-180 ease duration-500"
           >
             <path
               fill-rule="evenodd"
