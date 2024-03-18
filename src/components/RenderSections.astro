@@ -22,6 +22,7 @@ import CardList from "../sections/CardList.astro";
 import FAQ from '../sections/FAQ.astro'
 import Leadership from '../sections/Leadership.astro'
 import BoardOfDirectors from '../sections/BoardOfDirectors.astro'
+import FacultyMembers from '../sections/FacultyMembers.astro'
 
 const { content } = Astro.props;
 ---
@@ -77,6 +78,8 @@ const { content } = Astro.props;
           return <Leadership content={section} />;
         case "sections.board-of-directors":
           return <BoardOfDirectors content={section} />;
+        case "sections.faculty-members":
+          return <FacultyMembers content={section} />;
         default:
           return null;
       }
