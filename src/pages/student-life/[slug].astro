@@ -15,7 +15,7 @@ const query = qs.stringify(
       sections: {
         populate: {
         button: {populate:'*'},
-        list:{populate:'*'}, 
+        list:{image:{populate:'*'}}, 
         faqs:{populate:'*'}, 
         directors:{populate:'*'}, 
         cards:{populate:'*'}, 

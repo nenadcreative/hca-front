@@ -24,6 +24,7 @@ import Leadership from '../sections/Leadership.astro'
 import BoardOfDirectors from '../sections/BoardOfDirectors.astro'
 import FacultyMembers from '../sections/FacultyMembers.astro'
 import FeatureMultipleBasicCards from '../sections/FeatureMultipleBasicCards.astro'
+import FeaturedList from '../sections/FeaturedList.astro'
 
 const { content } = Astro.props;
 ---
@@ -75,14 +76,16 @@ const { content } = Astro.props;
           return <CardList content={section} />;
         case "sections.faq":
           return <FAQ content={section} />;
-        case "sections.leadership":
+          case "sections.leadership":
           return <Leadership content={section} />;
         case "sections.board-of-directors":
           return <BoardOfDirectors content={section} />;
         case "sections.faculty-members":
-          return <FacultyMembers content={section} />;
+          return <FacultyMembers content={section} />;     
           case "sections.feature-multiple-basic-cards":
           return <FeatureMultipleBasicCards content={section} />;
+          case "sections.featured-list":
+          return <FeaturedList content={section} />;
         default:
           return null;
       }
