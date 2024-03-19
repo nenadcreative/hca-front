@@ -182,12 +182,14 @@ console.log(content);
               )}
 
               <div class=" w-52 rounded relative z-10 border-8 bg-white border-brand-blue">
-                <Image
-                  src={item.image.data.attributes.url}
-                  inferSize
-                  alt={item.title}
-                  class=" w-full h-full object-cover"
-                />
+                {item.image && (
+                  <Image
+                    src={item.image.data.attributes.url}
+                    inferSize
+                    alt={item.title}
+                    class=" w-full h-full object-cover"
+                  />
+                )}
               </div>
             </div>
             <div>
