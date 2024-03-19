@@ -15,10 +15,11 @@ const query = qs.stringify(
       sections: {
         populate: {
         button: {populate:'*'},
-        list:{image:{populate:'*'}}, 
+        list:{populate:{image:{populate:'*'}}}, 
         faqs:{populate:'*'}, 
         directors:{populate:'*'}, 
         cards:{populate:'*'}, 
+
     }
         
       },
