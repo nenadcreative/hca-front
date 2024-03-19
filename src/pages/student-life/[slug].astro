@@ -18,6 +18,7 @@ const query = qs.stringify(
         list:{populate:'*'}, 
         faqs:{populate:'*'}, 
         directors:{populate:'*'}, 
+        cards:{populate:'*'}, 
     }
         
       },
@@ -40,6 +41,7 @@ const query = qs.stringify(
 type Props = Page;
 
 const page = Astro.props;
+console.log(page);
 
 
 ---
