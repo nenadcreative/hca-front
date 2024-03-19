@@ -1,49 +1,11 @@
 ---
-import Container from "../layouts/Container.astro";
-import { BlocksRenderer } from "@strapi/blocks-react-renderer";
-import { Image } from "astro:assets";
+import Container from '../layouts/Container.astro'
 
-const { content } = Astro.props;
-
-const bg = content.background;
-
-const backgrounds = {
-  gray: "bg-gray",
-  white: "bg-white",
-};
-
-console.log(content);
+const {content} = Astro.props
 ---
 
-<section class=` ${backgrounds[bg]} py-20 bg-section-bg bg-cover bg-no-repeat`>
-  <Container>
-    <div class="flex flex-col lg:flex-row gap-12">
-      <div class="w-full lg:max-w-96">
-        {
-          content.tagline && (
-            <p class="mb-4 tagline text-brand-blue">{content.tagline}</p>
-          )
-        }<h2 class="mb-6">{content.title}</h2>
-        <BlocksRenderer content={content.description} />
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
-        {
-          content.directors.map((director) => (
-            <div class=" px-4 sm:px-6 py-10 rounded-lg bg-white shadow-lg text-center">
-              <Image
-                src={director.image.data.attributes.url}
-                alt={director.title}
-                inferSize
-                class=" w-[120px] h-[120px] object-cover mx-auto"
-              />
-              <p class=" font-display text-display-md font-bold mb-3 mt-7">
-                {director.title}
-              </p>
-              <p>{director.bio}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </Container>
+<section>
+    <Container>
+        <h2>Board of Directors</h2>
+    </Container>
 </section>
