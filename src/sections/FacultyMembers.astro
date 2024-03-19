@@ -28,12 +28,14 @@ console.log(content);
         content.list.map((member) => (
           <div class=" bg-white rounded-lg shadow-lg p-4 sm:p-8">
             <div class=" mb-7 flex flex-row items-center justify-between">
-              <Image
-                src={member.image.data.attributes.url}
-                alt={member.name}
-                inferSize
-                class=" w-[120px] h-[120px] object-cover"
-              />
+              {member.image && (
+                <Image
+                  src={member.image.data.attributes.url}
+                  alt={member.name}
+                  inferSize
+                  class=" w-[120px] h-[120px] object-cover"
+                />
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="100"
