@@ -27,6 +27,7 @@ import FeatureMultipleBasicCards from '../sections/FeatureMultipleBasicCards.ast
 import FeaturedList from '../sections/FeaturedList.astro'
 import FeaturedDoubleList from '../sections/FeaturedDoubleList.astro'
 import ContactInfo from '../sections/ContactInfo.astro'
+import ContactRepository from '../sections/ContactRepository.astro'
 
 const { content } = Astro.props;
 ---
@@ -92,6 +93,8 @@ const { content } = Astro.props;
           return <FeaturedDoubleList content={section} />;
           case "sections.contact-info":
           return <ContactInfo content={section} />;
+          case "sections.contact-repository":
+          return <ContactRepository content={section} />;
         default:
           return null;
       }
