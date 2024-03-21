@@ -15,7 +15,7 @@ const AccordionFAQ = ({ question, children }) => (
       className=" bg-white shadow-lg rounded-lg relative group animate-slide"
       value={question}
     >
-      <AccordionTrigger className="">
+      <AccordionTrigger className="flex flex-row items-center w-full  text-left     cursor-default gap-2 p-3  md:p-6  ">
         <div className=" w-[26px] h-[26px] hidden sm:block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -42,9 +42,31 @@ const AccordionFAQ = ({ question, children }) => (
           </svg>
         </div>
 
-        <p className=" font-display display-sm font-bold">{question}</p>
+        <p className="font-display text-display-sm font-bold">{question}</p>
       </AccordionTrigger>
-      <AccordionContent>{children}</AccordionContent>
+      <AccordionContent faq="pb-6 px-3 md:px-14">{children}</AccordionContent>
+    </AccordionItem>
+  </Accordion.Root>
+);
+const AccordionContact = ({ question, children }) => (
+  <Accordion.Root
+    className=" w-full  "
+    type="single"
+    defaultValue="item-1"
+    collapsible
+  >
+    <AccordionItem
+      className=" bg-white shadow-lg rounded-lg relative group animate-slide"
+      value={question}
+    >
+      <AccordionTrigger className=" trigger flex flex-row items-center w-full  text-left cursor-default gap-2 p-6 md:p-12   ">
+        <p className="font-display text-display-md md:text-display-lg font-bold">
+          {question}
+        </p>
+      </AccordionTrigger>
+      <AccordionContent contact="pb-6 md:pb-12 px-6 md:px-12">
+        {children}
+      </AccordionContent>
     </AccordionItem>
   </Accordion.Root>
 );
@@ -53,7 +75,7 @@ const AccordionItem = React.forwardRef(
   ({ children, className, ...props }, forwardedRef) => (
     <Accordion.Item
       className={classNames(
-        "border border-transparent focus-within:border-lightAccent mt-px overflow-hidden first:mt-0 first:rounded-tl-3xl focus-within:relative focus-within:z-10 ",
+        "border border-transparent focus-within:border-lightAccent mt-px overflow-hidden first:mt-0  focus-within:relative focus-within:z-10 ",
         className
       )}
       {...props}
@@ -68,10 +90,7 @@ const AccordionTrigger = React.forwardRef(
   ({ children, className, ...props }, forwardedRef) => (
     <Accordion.Header className="flex">
       <Accordion.Trigger
-        className={classNames(
-          " flex flex-row items-center w-full  text-left     cursor-default gap-2 p-3  md:p-6  ",
-          className
-        )}
+        className={classNames(className)}
         {...props}
         ref={forwardedRef}
       >
@@ -93,18 +112,13 @@ const AccordionTrigger = React.forwardRef(
             />
           </svg>
         </div>
-
-        {/*   <ChevronDownIcon
-          className="text-violet10 ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
-          aria-hidden
-        /> /*/}
       </Accordion.Trigger>
     </Accordion.Header>
   )
 );
 
 const AccordionContent = React.forwardRef(
-  ({ children, className, ...props }, forwardedRef) => (
+  ({ children, className, contact, faq, ...props }, forwardedRef) => (
     <Accordion.Content
       className={classNames(
         " data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden ",
@@ -113,11 +127,9 @@ const AccordionContent = React.forwardRef(
       {...props}
       ref={forwardedRef}
     >
-      <div className="pb-6 border-r  border-r-white/30 px-3 md:px-14">
-        {children}
-      </div>
+      <div className={classNames(contact, faq)}>{children}</div>
     </Accordion.Content>
   )
 );
 
-export default AccordionFAQ;
+export { AccordionFAQ, AccordionContact };
