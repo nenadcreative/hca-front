@@ -1,11 +1,61 @@
 ---
-import Container from '../layouts/Container.astro'
+import Container from "../layouts/Container.astro";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import { Image } from "astro:assets";
+import Form from "../components/Form.jsx";
 
-const {content} = Astro.props
+const { content } = Astro.props;
+
+const bg = content.background;
+
+const backgrounds = {
+  gray: "bg-gray",
+  white: "bg-white",
+};
+
+console.log(content);
 ---
 
-<section>
-    <Container>
-        <h2>Contact Info Section</h2>
-    </Container>
+<section
+  class=`${backgrounds[bg]} pt-20 pb-24 bg-section-bg bg-cover bg-no-repeat`
+>
+  <Container>
+    <div class="flex flex-col lg:flex-row lg:items-start gap-16">
+      <div class="bg-white lg:w-1/2 rounded-lg shadow-lg px-4 md:px-8 py-12">
+        {
+          content.tagline && (
+            <p class="mb-4 tagline text-brand-blue">{content.tagline}</p>
+          )
+        }
+        <h2 class="mb-6">{content.title}</h2>
+        <div class="mb-9">
+          <BlocksRenderer content={content.description} />
+        </div>
+        <div class="flex flex-col gap-6">
+          {
+            content.contactInfo.map((contact) => (
+              <div class=" flex flex-row items-start gap-2.5">
+                <div class=" w-8 h-8">
+                  <Image
+                    src={contact.icon.data.attributes.url}
+                    alt=""
+                    inferSize
+                  />
+                </div>
+
+                <a href={contact.link} class=" text-body-md  font-semibold">
+                  {contact.text}
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="bg-white w-full lg:w-1/2 shadow-lg rounded-lg px-4 md:px-8 py-12"
+      >
+        <Form client:load />
+      </div>
+    </div>
+  </Container>
 </section>
