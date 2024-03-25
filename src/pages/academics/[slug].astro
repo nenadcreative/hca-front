@@ -1,0 +1,50 @@
+---
+import fetchApi from "../../lib/strapi";
+import qs from "qs";
+import type Page from "../../interfaces/page";
+import Layout from "../../layouts/Layout.astro";
+import RenderSections from "../../components/RenderSections.astro";
+
+export async function getStaticPaths() {
+  const query = qs.stringify(
+  {
+    populate:{
+      SEO: { populate: "*" },
+      sections: {
+        populate: {
+        button: {populate:'*'},
+        cards:{populate:'*'},
+        Card:{populate:'*'},
+        image:{populate:'*'},
+        bgImage:{populate:"*"},
+        contactInfo:{populate:'*'},
+        steps:{populate:'*'},
+        table:{populate:'*'},
+        list:{populate:'*'},
+        contact:{populate:'*'}
+    }
+        
+      },
+  },
+ 
+  }
+);
+  const pageQuery = `academics?${query}`;
+  const pages = await fetchApi<Page[]>({
+    endpoint: pageQuery,
+    wrappedByKey: "data",
+  });
+
+  return pages.map((page) => ({
+    params: { slug: page.attributes.slug },
+    props: page,
+  }));
+}
+type Props = Page;
+
+const page = Astro.props;
+---
+
+<Layout title={page.attributes.title}>
+  <RenderSections content={page.attributes.sections} />
+</Layout>
