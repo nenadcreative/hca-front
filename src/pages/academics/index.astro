@@ -10,6 +10,8 @@ const pagesData = await fetchApi<Page[]>({
   wrappedByKey: "data", // the key to unwrap the response
 });
 
+console.log(pagesData);
+
 
 ---
 
@@ -24,7 +26,7 @@ const pagesData = await fetchApi<Page[]>({
         <div class="flex flex-col gap-4">
         { 
           pagesData
-          
+            .filter((page) => page.attributes.category === "non-degree programs")
             .map((page) => {
               const link = `/academics/${page.attributes.slug}`;
               return <a href={link}>{page.attributes.title}</a>;
@@ -33,7 +35,47 @@ const pagesData = await fetchApi<Page[]>({
         </div>
       </div>
 
-     
+      <div class="mb-8">
+        <h2>Degree Programs</h2>
+        <div class="flex flex-col gap-4">
+        { 
+          pagesData
+            .filter((page) => page.attributes.category === "degree programs")
+            .map((page) => {
+              const link = `/academics/${page.attributes.slug}`;
+              return <a href={link}>{page.attributes.title}</a>;
+            })
+        }
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <h2>Information</h2>
+        <div class="flex flex-col gap-4">
+        { 
+          pagesData
+            .filter((page) => page.attributes.category === "information")
+            .map((page) => {
+              const link = `/academics/${page.attributes.slug}`;
+              return <a href={link}>{page.attributes.title}</a>;
+            })
+        }
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <h2>Review and Remedial</h2>
+        <div class="flex flex-col gap-4">
+        { 
+          pagesData
+            .filter((page) => page.attributes.category === "review and remedial")
+            .map((page) => {
+              const link = `/academics/${page.attributes.slug}`;
+              return <a href={link}>{page.attributes.title}</a>;
+            })
+        }
+        </div>
+      </div>
       </div>
       
     
