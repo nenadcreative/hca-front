@@ -15,7 +15,7 @@ const AccordionFAQ = ({ question, children }) => (
       className=" bg-white shadow-lg rounded-lg relative group animate-slide"
       value={question}
     >
-      <AccordionTrigger className="flex flex-row items-center w-full  text-left     cursor-default gap-2 p-3  md:p-6  ">
+      <AccordionTrigger className="flex flex-row items-center w-full  text-left     cursor-default gap-2 p-6  ">
         <div className=" w-[26px] h-[26px] hidden sm:block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
