@@ -1,6 +1,7 @@
 ---
 import Container from "../layouts/Container.astro";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import ButtonLink from "../components/ButtonLink.astro";
 
 const { content } = Astro.props;
 
@@ -10,6 +11,8 @@ const backgrounds = {
   gray: "bg-gray",
   white: "bg-white",
 };
+
+console.log(content);
 ---
 
 <section
@@ -89,5 +92,16 @@ const backgrounds = {
         ))
       }
     </div>
+    {
+      content.button && (
+        <div class="mt-6 mx-auto">
+          <ButtonLink
+            button={content.button}
+            target={content.button.target}
+            variant={content.button.type}
+          />
+        </div>
+      )
+    }
   </Container>
 </section>
