@@ -14,7 +14,7 @@ console.log(content.DetailedContactInfo[1].contactInfo);
         content.DetailedContactInfo.map((item) => (
           <AccordionContact client:load question={item.title}>
             <div class=" mb-11">
-              <BlocksRenderer content={item.description} />
+              {item.description &&  <BlocksRenderer content={item.description} />}
             </div>
 
             {item.contactInfo && (
