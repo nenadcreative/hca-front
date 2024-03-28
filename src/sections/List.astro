@@ -4,9 +4,17 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import ButtonLink from "../components/ButtonLink.astro";
 
 const { content } = Astro.props;
+
+const bg = content.background;
+
+const backgrounds = {
+  gray: "bg-gray",
+  white: "bg-white",
+};
+console.log(content);
 ---
 
-<section class="py-24">
+<section class=`${backgrounds[bg]} py-24`>
   <Container>
     <div class="max-w-[800px]">
       {
