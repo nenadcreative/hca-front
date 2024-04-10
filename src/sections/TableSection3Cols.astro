@@ -1,6 +1,7 @@
 ---
 import Container from "../layouts/Container.astro";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import ButtonLink from "../components/ButtonLink.astro";
 
 const { content } = Astro.props;
 
@@ -89,6 +90,17 @@ console.log(content.table.length);
       </table>
     </div>
     <!-- end of Desktop and tablet table -->
+    {
+      content.button && (
+        <div class="mx-auto mt-12">
+          <ButtonLink
+            button={content.button}
+            target={content.button.target}
+            variant={content.button.type}
+          />
+        </div>
+      )
+    }
 
     <div class="bg-brand-blue w-[250px] h-6 absolute top-0 right-0"></div>
     <div class="bg-brand-yellow w-[250px] h-6 absolute bottom-0 right-0"></div>

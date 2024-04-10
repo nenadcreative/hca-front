@@ -6,6 +6,13 @@ import { Image } from "astro:assets";
 
 const { content } = Astro.props;
 
+const layout = content.layout;
+const layouts = {
+  right: "ml-auto",
+  left: "mr-auto",
+};
+
+console.log(content);
 ---
 
 <section class="py-24 relative">
@@ -17,7 +24,7 @@ const { content } = Astro.props;
   />
   <Container classes="relative z-10">
     <div
-      class="bg-dark-1 pt-10 md:pt-20 pb-8 md:pb-16 px-4 md:px-8 rounded-lg max-w-[720px] mx-auto lg:mx-0 lg:ml-auto relative"
+      class=`bg-dark-1 pt-10 md:pt-20 pb-8 md:pb-16 px-4 md:px-8 rounded-lg max-w-[720px] mx-auto lg:mx-0 lg:${layouts[layout]} relative`
     >
       <div
         class="absolute hidden sm:block top-0 left-4 md:left-8 bg-brand-blue w-52 h-5"
@@ -25,7 +32,6 @@ const { content } = Astro.props;
       </div>
       <div
         class="absolute hidden sm:block bottom-0 right-4 md:right-8 bg-brand-yellow w-52 h-5"
-
       >
       </div>
       {
