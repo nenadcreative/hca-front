@@ -34,4 +34,7 @@
   .tagline {
     @apply uppercase text-brand-blue font-semibold;
   }
+  .text-inversed > p > strong {
+    color: #fdc72f;
+  }
 }

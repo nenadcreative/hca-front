@@ -51,6 +51,7 @@ export async function getStaticPaths() {
 type Props = Page;
 
 const page = Astro.props;
+console.log(page);
 ---
 
 <Layout title={page.attributes.title}>

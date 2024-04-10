@@ -19,15 +19,15 @@ import ContactInformation from "../sections/ContactInformation.astro";
 import ListBasic from "../sections/ListBasic.astro";
 import ResourcesList from "../sections/ResourcesList.astro";
 import CardList from "../sections/CardList.astro";
-import FAQ from '../sections/FAQ.astro'
-import Leadership from '../sections/Leadership.astro'
-import BoardOfDirectors from '../sections/BoardOfDirectors.astro'
-import FacultyMembers from '../sections/FacultyMembers.astro'
-import FeatureMultipleBasicCards from '../sections/FeatureMultipleBasicCards.astro'
-import FeaturedList from '../sections/FeaturedList.astro'
-import FeaturedDoubleList from '../sections/FeaturedDoubleList.astro'
-import ContactForm from '../sections/ContactForm.astro'
-import ContactRepository from '../sections/ContactRepository.astro'
+import FAQ from "../sections/FAQ.astro";
+import Leadership from "../sections/Leadership.astro";
+import BoardOfDirectors from "../sections/BoardOfDirectors.astro";
+import FacultyMembers from "../sections/FacultyMembers.astro";
+import FeatureMultipleBasicCards from "../sections/FeatureMultipleBasicCards.astro";
+import FeaturedList from "../sections/FeaturedList.astro";
+import FeaturedDoubleList from "../sections/FeaturedDoubleList.astro";
+import ContactForm from "../sections/ContactForm.astro";
+import ContactRepository from "../sections/ContactRepository.astro";
 
 const { content } = Astro.props;
 ---
@@ -79,21 +79,21 @@ const { content } = Astro.props;
           return <CardList content={section} />;
         case "sections.faq":
           return <FAQ content={section} />;
-          case "sections.leadership":
+        case "sections.leadership":
           return <Leadership content={section} />;
         case "sections.board-of-directors":
           return <BoardOfDirectors content={section} />;
         case "sections.faculty-members":
-          return <FacultyMembers content={section} />;     
-          case "sections.feature-multiple-basic-cards":
+          return <FacultyMembers content={section} />;
+        case "sections.feature-multiple-basic-cards":
           return <FeatureMultipleBasicCards content={section} />;
-          case "sections.featured-list":
+        case "sections.featured-list":
           return <FeaturedList content={section} />;
-          case "sections.featured-double-list":
+        case "sections.featured-double-list":
           return <FeaturedDoubleList content={section} />;
-          case "sections.contact-form":
+        case "sections.contact-info":
           return <ContactForm content={section} />;
-          case "sections.contact-repository":
+        case "sections.contact-repository":
           return <ContactRepository content={section} />;
         default:
           return null;
