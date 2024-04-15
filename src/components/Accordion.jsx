@@ -43,6 +43,23 @@ const AccordionFAQ = ({ question, children }) => (
         </div>
 
         <p className="font-display text-display-sm font-bold">{question}</p>
+        <div className=" bg-brand-yellow ml-auto   px-[7.6px] py-[11.25px] rounded-lg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="10"
+            viewBox="0 0 18 10"
+            fill="none"
+            className=" group-data-[state=open]:rotate-180 ease duration-500"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M9.53026 9.53037C9.23736 9.82327 8.76256 9.82327 8.46966 9.53037L0.823183 1.88387C0.530293 1.59097 0.530293 1.11617 0.823183 0.823275L1.17674 0.469675C1.46963 0.176775 1.9445 0.176775 2.2374 0.469675L8.99996 7.23228L15.7626 0.469675C16.0555 0.176775 16.5303 0.176775 16.8232 0.469675L17.1768 0.823275C17.4697 1.11617 17.4697 1.59097 17.1768 1.88387L9.53026 9.53037Z"
+              fill="#151E2D"
+            />
+          </svg>
+        </div>
       </AccordionTrigger>
       <AccordionContent faq="pb-6 px-3 md:px-14">{children}</AccordionContent>
     </AccordionItem>
@@ -63,10 +80,53 @@ const AccordionContact = ({ question, children }) => (
         <p className="font-display text-display-md md:text-display-lg font-bold">
           {question}
         </p>
+        <div className=" bg-brand-yellow ml-auto   px-[7.6px] py-[11.25px] rounded-lg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="10"
+            viewBox="0 0 18 10"
+            fill="none"
+            className=" group-data-[state=open]:rotate-180 ease duration-500"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M9.53026 9.53037C9.23736 9.82327 8.76256 9.82327 8.46966 9.53037L0.823183 1.88387C0.530293 1.59097 0.530293 1.11617 0.823183 0.823275L1.17674 0.469675C1.46963 0.176775 1.9445 0.176775 2.2374 0.469675L8.99996 7.23228L15.7626 0.469675C16.0555 0.176775 16.5303 0.176775 16.8232 0.469675L17.1768 0.823275C17.4697 1.11617 17.4697 1.59097 17.1768 1.88387L9.53026 9.53037Z"
+              fill="#151E2D"
+            />
+          </svg>
+        </div>
       </AccordionTrigger>
       <AccordionContent contact="pb-6 md:pb-12 px-6 md:px-12">
         {children}
       </AccordionContent>
+    </AccordionItem>
+  </Accordion.Root>
+);
+const AccordionMenu = ({ question, children }) => (
+  <Accordion.Root collapsible>
+    <AccordionItem className="   relative group animate-slide" value={question}>
+      <AccordionTrigger className=" trigger flex flex-row items-center justify-center lg:justify-start   text-center lg:text-left cursor-default    ">
+        <p className="lg:text-body-sm hover:cursor-pointer">{question}</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="21"
+          height="20"
+          viewBox="0 0 21 20"
+          fill="none"
+          className="group-data-[state=open]:rotate-180 ease duration-500"
+        >
+          <path
+            d="M5.71777 7.5L10.7178 12.5L15.7178 7.5"
+            stroke="currentColor"
+            strokeWidth="1.66667"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </AccordionTrigger>
+      <AccordionContent menu="py-2 ">{children}</AccordionContent>
     </AccordionItem>
   </Accordion.Root>
 );
@@ -88,37 +148,20 @@ const AccordionItem = React.forwardRef(
 
 const AccordionTrigger = React.forwardRef(
   ({ children, className, ...props }, forwardedRef) => (
-    <Accordion.Header className="flex">
+    <Accordion.Header className="flex justify-center lg:justify-start ">
       <Accordion.Trigger
         className={classNames(className)}
         {...props}
         ref={forwardedRef}
       >
         {children}
-        <div className=" bg-brand-yellow ml-auto   px-[7.6px] py-[11.25px] rounded-lg">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="10"
-            viewBox="0 0 18 10"
-            fill="none"
-            className=" group-data-[state=open]:rotate-180 ease duration-500"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M9.53026 9.53037C9.23736 9.82327 8.76256 9.82327 8.46966 9.53037L0.823183 1.88387C0.530293 1.59097 0.530293 1.11617 0.823183 0.823275L1.17674 0.469675C1.46963 0.176775 1.9445 0.176775 2.2374 0.469675L8.99996 7.23228L15.7626 0.469675C16.0555 0.176775 16.5303 0.176775 16.8232 0.469675L17.1768 0.823275C17.4697 1.11617 17.4697 1.59097 17.1768 1.88387L9.53026 9.53037Z"
-              fill="#151E2D"
-            />
-          </svg>
-        </div>
       </Accordion.Trigger>
     </Accordion.Header>
   )
 );
 
 const AccordionContent = React.forwardRef(
-  ({ children, className, contact, faq, ...props }, forwardedRef) => (
+  ({ children, className, contact, faq, menu, ...props }, forwardedRef) => (
     <Accordion.Content
       className={classNames(
         " data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden ",
@@ -127,9 +170,9 @@ const AccordionContent = React.forwardRef(
       {...props}
       ref={forwardedRef}
     >
-      <div className={classNames(contact, faq)}>{children}</div>
+      <div className={classNames(contact, faq, menu)}>{children}</div>
     </Accordion.Content>
   )
 );
 
-export { AccordionFAQ, AccordionContact };
+export { AccordionFAQ, AccordionContact, AccordionMenu };
