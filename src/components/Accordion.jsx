@@ -61,7 +61,12 @@ const AccordionFAQ = ({ question, children }) => (
           </svg>
         </div>
       </AccordionTrigger>
-      <AccordionContent faq="pb-6 px-3 md:px-14">{children}</AccordionContent>
+      <AccordionContent
+        className="data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden"
+        faq="pb-6 px-3 md:px-14"
+      >
+        {children}
+      </AccordionContent>
     </AccordionItem>
   </Accordion.Root>
 );
@@ -98,7 +103,10 @@ const AccordionContact = ({ question, children }) => (
           </svg>
         </div>
       </AccordionTrigger>
-      <AccordionContent contact="pb-6 md:pb-12 px-6 md:px-12">
+      <AccordionContent
+        className="data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden"
+        contact="pb-6 md:pb-12 px-6 md:px-12"
+      >
         {children}
       </AccordionContent>
     </AccordionItem>
@@ -115,7 +123,7 @@ const AccordionMenu = ({ question, children }) => (
           height="20"
           viewBox="0 0 21 20"
           fill="none"
-          className="group-data-[state=open]:rotate-180 ease duration-500"
+          className="group-data-[state=open]:rotate-180 transition-transform duration-[300] ease-in"
         >
           <path
             d="M5.71777 7.5L10.7178 12.5L15.7178 7.5"
@@ -163,10 +171,7 @@ const AccordionTrigger = React.forwardRef(
 const AccordionContent = React.forwardRef(
   ({ children, className, contact, faq, menu, ...props }, forwardedRef) => (
     <Accordion.Content
-      className={classNames(
-        " data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden ",
-        className
-      )}
+      className={classNames(className)}
       {...props}
       ref={forwardedRef}
     >
