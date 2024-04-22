@@ -96,7 +96,8 @@ const { content } = Astro.props;
           return <ContactForm content={section} />;
         case "sections.contact-repository":
           return <ContactRepository content={section} />;
-
+        case "sections.featured-double-link-list":
+          return <FeaturedDoubleLinkList content={section} />;
         default:
           return null;
       }
