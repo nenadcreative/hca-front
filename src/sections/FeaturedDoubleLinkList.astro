@@ -36,7 +36,10 @@ import ButtonLink from "../components/ButtonLink.astro";
         <div class="flex flex-col gap-7">
           {
             content.list1.map((item) => {
-              console.log(item.file.data.attributes.url);
+              {
+                item.file.data.attributes.url ??
+                  console.log(item.file.data.attributes.url);
+              }
 
               return (
                 <a
