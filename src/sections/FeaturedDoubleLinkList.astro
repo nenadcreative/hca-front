@@ -37,7 +37,7 @@ import ButtonLink from "../components/ButtonLink.astro";
           {
             content.list1.map((item) => {
               {
-                item.file.data.attributes.url ??
+                item.file.data.attributes.url &&
                   console.log(item.file.data.attributes.url);
               }
 
