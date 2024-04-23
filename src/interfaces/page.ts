@@ -7,5 +7,7 @@ export default interface Page {
     SEO: object;
     sections: object;
     category: string
+    attributes: object;
+    Hero: any;
   };
 }

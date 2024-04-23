@@ -10,7 +10,7 @@ import ButtonLink from "../../components/ButtonLink.astro";
 import { TabsNewsAndEvents } from "../../components/Tabs";
 
 const query = `news-and-events-single?populate=deep`;
-const pagesData = await fetchApi<Page[]>({
+const pagesData = await fetchApi<Page>({
   endpoint: query,
   wrappedByKey: "data",
 });
@@ -25,8 +25,6 @@ const postData = await fetchApi<Page[]>({
 
 // }
 const content = pagesData.attributes;
-
-console.log(postData);
 
 // const { page }: { page: any } = Astro.props;
 // console.log(page.data[0].attributes);
