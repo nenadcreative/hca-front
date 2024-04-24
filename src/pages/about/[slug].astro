@@ -21,17 +21,14 @@ export async function getStaticPaths() {
           table: { populate: "*" },
           list: { populate: "*" },
           contact: { populate: "*" },
-
           list1Button: { populate: "*" },
           list2Button: { populate: "*" },
-
           list1: { populate: "*" },
           list2: { populate: "*" },
           faqs: { populate: "*" },
           directors: { populate: "*" },
-
           DetailedContactInfo: { populate: "*" },
-
+          file: { populate: "*" },
           link: { populate: "*" },
         },
       },
@@ -51,7 +48,6 @@ export async function getStaticPaths() {
 type Props = Page;
 
 const page = Astro.props;
-console.log(page);
 ---
 
 <Layout title={page.attributes.title}>

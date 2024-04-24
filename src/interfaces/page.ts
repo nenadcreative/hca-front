@@ -14,5 +14,6 @@ export default interface Page {
     publishedAt: string;
     featuredImage: any;
     content: any;
+
   };
 }

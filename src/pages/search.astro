@@ -1,0 +1,32 @@
+---
+import fetchApi from "../lib/strapi";
+import type Home from "../interfaces/home";
+import Layout from "../layouts/Layout.astro";
+import DecoratedText from "../components/DecoratedText.tsx";
+import RenderSections from "../components/RenderSections.astro";
+import Container from "../layouts/Container.astro";
+
+const homequery = `home?populate=deep`;
+
+const homeData = await fetchApi<Home>({
+  endpoint: homequery, // the content type to fetch
+  wrappedByKey: "data", // the key to unwrap the response
+});
+console.log(homeData);
+---
+
+<Layout title="Home">
+  <section class="py-20">
+    <Container
+      ><h1>Search</h1>
+      <div id="search"></div></Container
+    >
+  </section>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+      // @ts-ignore
+      new PagefindUI({ element: "#search", showSubResults: true });
+    });
+  </script>
+</Layout>

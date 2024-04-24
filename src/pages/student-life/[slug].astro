@@ -5,37 +5,31 @@ import Layout from "../../layouts/Layout.astro";
 import RenderSections from "../../components/RenderSections.astro";
 import qs from "qs";
 
-
 export async function getStaticPaths() {
-  
-const query = qs.stringify(
-  {
-    populate:{
+  const query = qs.stringify({
+    populate: {
       SEO: { populate: "*" },
       sections: {
         populate: {
-        button: {populate:'*'},
-        list1Button: {populate:'*'},
-        list2Button: {populate:'*'},
-        list:{populate:{image:{populate:'*'}}}, 
-        list1:{populate:'*'}, 
-        list2:{populate:'*'}, 
-        faqs:{populate:'*'}, 
-        directors:{populate:'*'}, 
-        cards:{populate:'*'}, 
-        contactInfo:{populate:'*'},
-        DetailedContactInfo:{populate:'*'},
-        image:{populate:'*'},
-        bgImage:{populate:"*"},
-        link:{populate:'*'},
-        contact:{populate:"*"}
-    }
-        
+          button: { populate: "*" },
+          list1Button: { populate: "*" },
+          list2Button: { populate: "*" },
+          list: { populate: { image: { populate: "*" } } },
+          list1: { populate: "*" },
+          list2: { populate: "*" },
+          faqs: { populate: "*" },
+          directors: { populate: "*" },
+          cards: { populate: "*" },
+          contactInfo: { populate: "*" },
+          DetailedContactInfo: { populate: "*" },
+          image: { populate: "*" },
+          bgImage: { populate: "*" },
+          link: { populate: "*" },
+          contact: { populate: "*" },
+        },
       },
-  },
- 
-  }
-);
+    },
+  });
 
   const pageQuery = `student-lives?${query}`;
   const pages = await fetchApi<Page[]>({
@@ -51,12 +45,8 @@ const query = qs.stringify(
 type Props = Page;
 
 const page = Astro.props;
-console.log(page);
-
-
 ---
 
 <Layout title={page.attributes.title}>
- <RenderSections content={page.attributes.sections} /> 
- 
+  <RenderSections content={page.attributes.sections} />
 </Layout>
