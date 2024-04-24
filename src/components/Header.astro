@@ -126,7 +126,7 @@ console.log(mainDropdowns[0]);
   <div
     class="bg-brand-blue w-full z-50 px-4 pb-10 py-10 flex flex-col text-body-md gap-6 items-center text-center text-white"
   >
-    <a class="toogleLink" href="/">Home</a>
+    <a class="toogleLink mr-4" href="/">Home</a>
     {
       mainDropdowns.map((dropdown) => (
         <AccordionMenu client:load question={dropdown.attributes.title}>
@@ -163,11 +163,11 @@ console.log(mainDropdowns[0]);
         </AccordionMenu>
       ))
     }
-    <a href="#">Canvas</a>
-    <a href="#">Student Email</a>
-    <a href="#">Student Portal</a>
-    <a href="#">FA Student Portal</a>
-    <a href="#">Library</a>
+    <a class="mr-4" href="#">Canvas</a>
+    <a class="mr-4" href="#">Student Email</a>
+    <a class="mr-4" href="#">Student Portal</a>
+    <a class="mr-4" href="#">FA Student Portal</a>
+    <a class="mr-4" href="#">Library</a>
   </div>
 </div>
 
