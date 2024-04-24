@@ -5,7 +5,8 @@
 import React, { useState } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
-import { formatStartDate } from "../lib/index";
+import { formatStartMonth } from "../lib/index";
+import { formatStartDay } from "../lib/index";
 import DecoratedText from "../components/DecoratedText";
 
 const TabsNewsAndEvents = ({ content }) => {
@@ -75,10 +76,13 @@ const TabsNewsAndEvents = ({ content }) => {
           <Tabs.Content value="all" key={item.id}>
             <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 overflow-hidden bg-white px-6 py-10 rounded-lg shadow-lg">
               {/* Display start date */}
-              <div className="w-[72px] h-[72px]  px-4 flex items-center bg-brand-blue text-center text-white">
-                <DecoratedText
-                  content={formatStartDate(item.attributes.startDate)}
-                />
+              <div className="w-[72px] h-[72px]  px-4 py-1 flex flex-col items-center bg-brand-blue text-center">
+                <p className=" text-body-sm font-bold text-gray">
+                  {formatStartMonth(item.attributes.startDate)}
+                </p>
+                <p className=" font-display text-display-lg font-bold text-white">
+                  {formatStartDay(item.attributes.startDate)}
+                </p>
               </div>
 
               {/* Display item title and description */}
@@ -128,10 +132,13 @@ const TabsNewsAndEvents = ({ content }) => {
             <Tabs.Content value="fall 2023" key={item.id}>
               <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 overflow-hidden bg-white px-6 py-10 rounded-lg shadow-lg">
                 {/* Display start date */}
-                <div className="w-[72px] h-[72px]  px-4 flex items-center bg-brand-blue text-center text-white">
-                  <DecoratedText
-                    content={formatStartDate(item.attributes.startDate)}
-                  />
+                <div className="w-[72px] h-[72px]  px-4 py-1 flex flex-col items-center bg-brand-blue text-center">
+                  <p className=" text-body-sm font-bold text-gray">
+                    {formatStartMonth(item.attributes.startDate)}
+                  </p>
+                  <p className=" font-display text-display-lg font-bold text-white">
+                    {formatStartDay(item.attributes.startDate)}
+                  </p>
                 </div>
 
                 {/* Display item title and description */}
@@ -184,10 +191,13 @@ const TabsNewsAndEvents = ({ content }) => {
             <Tabs.Content value="winter 2023" key={item.id}>
               <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 overflow-hidden bg-white px-6 py-10 rounded-lg shadow-lg">
                 {/* Display start date */}
-                <div className="w-[72px] h-[72px]  px-4 flex items-center bg-brand-blue text-center text-white">
-                  <DecoratedText
-                    content={formatStartDate(item.attributes.startDate)}
-                  />
+                <div className="w-[72px] h-[72px]  px-4 py-1 flex flex-col items-center bg-brand-blue text-center">
+                  <p className=" text-body-sm font-bold text-gray">
+                    {formatStartMonth(item.attributes.startDate)}
+                  </p>
+                  <p className=" font-display text-display-lg font-bold text-white">
+                    {formatStartDay(item.attributes.startDate)}
+                  </p>
                 </div>
 
                 {/* Display item title and description */}
@@ -240,10 +250,13 @@ const TabsNewsAndEvents = ({ content }) => {
             <Tabs.Content value="spring 2024" key={item.id}>
               <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 overflow-hidden bg-white px-6 py-10 rounded-lg shadow-lg">
                 {/* Display start date */}
-                <div className="w-[72px] h-[72px]  px-4 flex items-center bg-brand-blue text-center text-white">
-                  <DecoratedText
-                    content={formatStartDate(item.attributes.startDate)}
-                  />
+                <div className="w-[72px] h-[72px]  px-4 py-1 flex flex-col items-center bg-brand-blue text-center">
+                  <p className=" text-body-sm font-bold text-gray">
+                    {formatStartMonth(item.attributes.startDate)}
+                  </p>
+                  <p className=" font-display text-display-lg font-bold text-white">
+                    {formatStartDay(item.attributes.startDate)}
+                  </p>
                 </div>
 
                 {/* Display item title and description */}
@@ -296,10 +309,13 @@ const TabsNewsAndEvents = ({ content }) => {
             <Tabs.Content value="summer 2024" key={item.id}>
               <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 overflow-hidden bg-white px-6 py-10 rounded-lg shadow-lg">
                 {/* Display start date */}
-                <div className="w-[72px] h-[72px]  px-4 flex items-center bg-brand-blue text-center text-white">
-                  <DecoratedText
-                    content={formatStartDate(item.attributes.startDate)}
-                  />
+                <div className="w-[72px] h-[72px]  px-4 py-1 flex flex-col items-center bg-brand-blue text-center">
+                  <p className=" text-body-sm font-bold text-gray">
+                    {formatStartMonth(item.attributes.startDate)}
+                  </p>
+                  <p className=" font-display text-display-lg font-bold text-white">
+                    {formatStartDay(item.attributes.startDate)}
+                  </p>
                 </div>
 
                 {/* Display item title and description */}
