@@ -12,7 +12,7 @@ const NavigationMenuDemo = ({ content }) => {
     <NavigationMenu.Root className="z-50 lg:flex w-full hidden">
       <NavigationMenu.List className="center m-0 flex list-none gap-8 rounded-[6px] bg-transparent p-1 text-white text-body-sm">
         <NavigationMenu.Item>
-          <NavigationMenu.Link className="block select-none" href="/">
+          <NavigationMenu.Link className="block select-none " href="/">
             Home
           </NavigationMenu.Link>
         </NavigationMenu.Item>
@@ -37,7 +37,7 @@ const NavigationMenuDemo = ({ content }) => {
                 />
               </svg>
             </NavigationMenu.Trigger>
-            <NavigationMenu.Content className="w-full text-dark-1 pb-12 px-2 absolute top-0 left-0">
+            <NavigationMenu.Content className="w-full text-dark-1 pb-12 px-2 absolute top-0 left-0 ">
               <div className="bg-[#E4E5E7] absolute top-0 left-0 w-full h-[94px]"></div>
               <ul
                 className={classNames(
@@ -107,8 +107,8 @@ const NavigationMenuDemo = ({ content }) => {
           <div className="relative top-[70%] h-[10px] w-[10px] rotate-[45deg] rounded-tl-[2px]" />
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
-      <div className="absolute top-[119px] z-50 overflow-hidden flex justify-center flex-row items-center w-screen right-0">
-        <NavigationMenu.Viewport className="data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut w-full bg-white h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden transition-[width,_height] duration-300" />
+      <div className="absolute top-[119px] z-50 overflow-hidden flex shadow-lg justify-center flex-row items-center w-screen right-0">
+        <NavigationMenu.Viewport className="data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut w-full  bg-white h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden transition-[width,_height] duration-300" />
       </div>
     </NavigationMenu.Root>
   );
