@@ -1,0 +1,82 @@
+---
+import fetchApi from "../../lib/strapi";
+import qs from "qs";
+import type Page from "../../interfaces/page";
+import Layout from "../../layouts/Layout.astro";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import Container from "../../layouts/Container.astro";
+import { Image } from "astro:assets";
+
+import { formatDate } from "../../lib";
+
+export async function getStaticPaths() {
+  const query = qs.stringify({
+    populate: {
+      SEO: { populate: "*" },
+      content: { populate: "*" },
+      featuredImage: { populate: "*" },
+    },
+  });
+  const pageQuery = `blogs?${query}`;
+  const pages = await fetchApi<Page[]>({
+    endpoint: pageQuery,
+    wrappedByKey: "data",
+  });
+
+  return pages.map((page) => ({
+    params: { slug: page.attributes.slug },
+    props: page,
+  }));
+}
+
+type Props = Page;
+
+const page = Astro.props;
+---
+
+<Layout title={page.attributes.title}>
+  <section class="py-24">
+    <Container
+      ><h1 class="text-display-xl mb-16 max-w-[800px]">
+        {page.attributes.title}
+      </h1>
+      <Image
+        src={page.attributes.featuredImage.data.attributes.url}
+        inferSize
+        alt={page.attributes.title}
+        class="w-full h-[640px] object-cover mb-8 rounded-t-lg"
+      />
+      <div
+        class="flex flex-row gap-12 mb-24 w-full justify-between sm:justify-start"
+      >
+        <div>
+          <p class="text-brand-blue font-semibold uppercase">Written by</p>
+          <p class="mt-1.5 font-semibold text-dark-2"></p>
+        </div>
+        <div>
+          <p class="text-brand-blue font-semibold uppercase">Published on</p>
+          <p class="mt-1.5 font-semibold text-dark-2">
+            {formatDate(page.attributes.publishedAt)}
+          </p>
+        </div>
+      </div>
+      <div
+        class="relative flex flex-col gap-12 lg:flex-row-reverse lg:items-start justify-between"
+      >
+        <div
+          class="p-8 rounded-lg bg-white shadow-lg lg:sticky lg:w-[380px] top-10"
+        >
+          <p class="font-display text-display-sm text-brand-blue2 font-bold">
+            Table of contents
+          </p>
+          <!-- TOC -->
+
+          <!-- end of TOC -->
+        </div>
+        <article class="prose prose-lg max-w-[800px]">
+          <BlocksRenderer content={page.attributes.content} />
+        </article>
+      </div>
+    </Container>
+  </section>
+</Layout>
