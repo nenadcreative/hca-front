@@ -20,9 +20,13 @@ export function formatDateFrom(date: string) {
     year: "numeric",
   });
 }
-export function formatStartDate(date: string) {
+export function formatStartMonth(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
     month: "short",
+  });
+}
+export function formatStartDay(date: string) {
+  return new Date(date).toLocaleDateString("en-US", {
     day: "numeric",
   });
 }
