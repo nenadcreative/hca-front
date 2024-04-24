@@ -1,0 +1,27 @@
+---
+interface Props {
+  previousPage: string;
+  nextPage: string;
+}
+
+const { previousPage = "#", nextPage = "#" } = Astro.props;
+---
+
+<div
+  class="w-full flex flex-row items-center justify-center gap-8 mt-10 text-body-lg text-brand-blue font-semibold"
+>
+  {
+    previousPage ? (
+      <a href={previousPage} aria-label={`Go back to ${previousPage}`}>
+        Previous
+      </a>
+    ) : null
+  }
+  {
+    nextPage ? (
+      <a href={nextPage} aria-label={`Go back to ${nextPage}`}>
+        Next
+      </a>
+    ) : null
+  }
+</div>

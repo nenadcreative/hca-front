@@ -5,7 +5,7 @@
 @tailwind utilities;
 @layer base {
   html {
-    @apply font-body leading-normal text-dark-1   break-words;
+    @apply font-body leading-normal text-dark-1 scroll-smooth   break-words;
   }
 
   h1 {
