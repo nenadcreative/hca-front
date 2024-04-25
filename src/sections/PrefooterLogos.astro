@@ -1,0 +1,32 @@
+---
+import Container from "../layouts/Container.astro";
+import { Image } from "astro:assets";
+import tracs from "../assets/tracs.png";
+import fldoe from "../assets/fldoe.png";
+import floridasNursing from "../assets/floridasNursing.png";
+---
+
+<section class="py-16">
+  <Container classes="flex flex-col xl:flex-row md:items-center gap-12">
+    <h2 class="text-brand-blue">Accreditations</h2>
+    <div
+      class="flex flex-col gap-12 sm:flex-row justify-between w-full xl:w-[70%] shadow-lg rounded-lg px-6 md:px-12 py-11"
+    >
+      <Image
+        src={tracs}
+        alt="tracs logo"
+        class="w-[104px] h-auto object-cover"
+      />
+      <Image
+        src={fldoe}
+        alt="fldoe logo"
+        class="w-[360px] h-auto object-cover"
+      />
+      <Image
+        src={floridasNursing}
+        alt="floridasNursing logo"
+        class="w-[104px] h-auto object-cover"
+      />
+    </div>
+  </Container>
+</section>
