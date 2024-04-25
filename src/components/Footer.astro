@@ -2,6 +2,20 @@
 import Container from "../layouts/Container.astro";
 import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
+import fetchApi from "../lib/strapi";
+
+const menuquery = `menus?nested&populate=*`;
+
+const menus = (await fetchApi({
+  endpoint: menuquery,
+  wrappedByKey: "data", // the key to unwrap the response
+})) as {
+  attributes: {
+    items: { title: string; url: string };
+  };
+};
+
+const footerLinks = menus[0].attributes.items.data;
 
 const date = new Date();
 const year = date.getFullYear();
@@ -21,13 +35,13 @@ const year = date.getFullYear();
       <div>
         <p class="font-display text-display-xs font-bold mb-5">Quick Links</p>
         <div class="flex flex-col gap-3">
-          <a href="/" class="text-body-xs">Mission and Vission</a>
-          <a href="/" class="text-body-xs">Statement of Faith</a>
-          <a href="/" class="text-body-xs">Admission Requirements</a>
-          <a href="/" class="text-body-xs">Healthcare Employers</a>
-          <a href="/" class="text-body-xs">Healthcare Agencies</a>
-          <a href="/" class="text-body-xs">Accreditation and Approvals</a>
-          <a href="/" class="text-body-xs">News & Events</a>
+          {
+            footerLinks.map((link) => (
+              <a href={link.attributes.url} class="text-body-xs">
+                {link.attributes.title}
+              </a>
+            ))
+          }
         </div>
       </div>
       <div>
