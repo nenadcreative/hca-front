@@ -123,7 +123,7 @@ const AccordionMenu = ({ question, children }) => (
           height="20"
           viewBox="0 0 21 20"
           fill="none"
-          className="group-data-[state=open]:rotate-180 transition-transform duration-[300] ease-in"
+          className={` group-data-[state=open]:rotate-180 transition-transform duration-[300] ease-in`}
         >
           <path
             d="M5.71777 7.5L10.7178 12.5L15.7178 7.5"
