@@ -22,7 +22,7 @@ const TabsNewsAndEvents = ({ content }) => {
 
   return (
     <Tabs.Root
-      defaultValue="winter 2023"
+      defaultValue="winter 2024"
       className="w-full flex flex-col gap-16"
     >
       <Tabs.List
@@ -36,28 +36,28 @@ const TabsNewsAndEvents = ({ content }) => {
           All
         </Tabs.Trigger> */}
         <Tabs.Trigger
-          value="fall 2023"
+          value="fall 2024"
           className=" px-4 py-3 bg-transparent text-dark-1  data-[state=active]:text-white data-[state=active]:bg-dark-2 "
         >
-          Fall 2023
+          Fall 2024
         </Tabs.Trigger>
         <Tabs.Trigger
-          value="winter 2023"
+          value="winter 2024"
           className=" px-4 py-3 bg-transparent text-dark-1  data-[state=active]:text-white data-[state=active]:bg-dark-2 "
         >
-          Winter 2023
+          Winter 2024
         </Tabs.Trigger>
         <Tabs.Trigger
-          value="spring 2024"
+          value="spring 2025"
           className=" px-4 py-3 bg-transparent text-dark-1  data-[state=active]:text-white data-[state=active]:bg-dark-2 "
         >
-          Spring 2024
+          Spring 2025
         </Tabs.Trigger>
         <Tabs.Trigger
-          value="summer 2024"
+          value="summer 2025"
           className=" px-4 py-3 bg-transparent text-dark-1  data-[state=active]:text-white data-[state=active]:bg-dark-2 "
         >
-          Summer 2024
+          Summer 2025
         </Tabs.Trigger>
         {/* {categories.map((category) => (
         <Tabs.Trigger
@@ -128,8 +128,8 @@ const TabsNewsAndEvents = ({ content }) => {
           </Tabs.Content>
         ))}
         {content.map((item) =>
-          item.attributes.category === "fall2023" ? (
-            <Tabs.Content value="fall 2023" key={item.id}>
+          item.attributes.category === "fall2024" ? (
+            <Tabs.Content value="fall 2024" key={item.id}>
               <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 overflow-hidden bg-white px-6 py-10 rounded-lg shadow-lg">
                 {/* Display start date */}
                 <div className="w-[72px] h-[72px]  px-4 py-1 flex flex-col items-center bg-brand-blue text-center">
@@ -187,8 +187,8 @@ const TabsNewsAndEvents = ({ content }) => {
           )
         )}
         {content.map((item) =>
-          item.attributes.category === "winter2023" ? (
-            <Tabs.Content value="winter 2023" key={item.id}>
+          item.attributes.category === "winter2024" ? (
+            <Tabs.Content value="winter 2024" key={item.id}>
               <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 overflow-hidden bg-white px-6 py-10 rounded-lg shadow-lg">
                 {/* Display start date */}
                 <div className="w-[72px] h-[72px]  px-4 py-1 flex flex-col items-center bg-brand-blue text-center">
@@ -246,8 +246,8 @@ const TabsNewsAndEvents = ({ content }) => {
           )
         )}
         {content.map((item) =>
-          item.attributes.category === "spring2024" ? (
-            <Tabs.Content value="spring 2024" key={item.id}>
+          item.attributes.category === "spring2025" ? (
+            <Tabs.Content value="spring 2025" key={item.id}>
               <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 overflow-hidden bg-white px-6 py-10 rounded-lg shadow-lg">
                 {/* Display start date */}
                 <div className="w-[72px] h-[72px]  px-4 py-1 flex flex-col items-center bg-brand-blue text-center">
@@ -305,8 +305,8 @@ const TabsNewsAndEvents = ({ content }) => {
           )
         )}
         {content.map((item) =>
-          item.attributes.category === "summer2024" ? (
-            <Tabs.Content value="summer 2024" key={item.id}>
+          item.attributes.category === "summer2025" ? (
+            <Tabs.Content value="summer 2025" key={item.id}>
               <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-5 overflow-hidden bg-white px-6 py-10 rounded-lg shadow-lg">
                 {/* Display start date */}
                 <div className="w-[72px] h-[72px]  px-4 py-1 flex flex-col items-center bg-brand-blue text-center">
