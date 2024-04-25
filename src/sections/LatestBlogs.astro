@@ -1,0 +1,84 @@
+---
+import Container from "../layouts/Container.astro";
+import fetchApi from "../lib/strapi";
+import type Page from "../interfaces/page";
+import { Image } from "astro:assets";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+
+const query = `blogs?populate=deep`;
+const blogPosts = await fetchApi<Page[]>({
+  endpoint: query,
+  wrappedByKey: "data",
+});
+
+blogPosts.sort(
+  (a, b) =>
+    Date.parse(b.attributes.publishedAt) - Date.parse(a.attributes.publishedAt)
+);
+
+const latestPosts = blogPosts.slice(0, 3);
+
+console.log(latestPosts);
+
+const { content } = Astro.props;
+console.log(content);
+---
+
+<section class="py-24 bg-gray bg-section-bg bg-no-repeat bg-cover">
+  <Container>
+    <h2 class="text-center mb-12">{content.title}</h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
+    >
+      {
+        latestPosts.map((item) => {
+          const link = `/blogs/${item.attributes.slug}`;
+          return (
+            <a
+              class="rounded-lg overflow-hidden group bg-white shadow-lg"
+              href={link}
+            >
+              <Image
+                src={item.attributes.featuredImage.data.attributes.url}
+                inferSize
+                class="w-full h-[268px] object-cover"
+                alt={item.attributes.title}
+              />
+              <div class="px-5 py-7">
+                <p class="font-display text-display-sm font-bold mb-3 line-clamp-3 ">
+                  {item.attributes.title}
+                </p>
+
+                {item.attributes.shortDescription && (
+                  <div class=" line-clamp-3">
+                    <BlocksRenderer
+                      content={item.attributes.shortDescription}
+                    />
+                  </div>
+                )}
+
+                <div class="rounded-lg min-w-[200px] mt-5 justify-start font-semibold text-body-md underline group-hover:no-underline decoration-brand-yellow decoration-2 underline-offset-8 text-dark1 flex items-center gap-2 pl-0">
+                  Read More
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 group-hover:-rotate-45 transition-all duration-200"
+                  >
+                    <circle cx="12" cy="12" r="12" fill="#FDC72F" />
+                    <path
+                      d="M12.4493 16.769C12.3822 16.696 12.329 16.6093 12.2926 16.5138C12.2563 16.4183 12.2376 16.316 12.2376 16.2126C12.2376 16.1092 12.2563 16.0068 12.2926 15.9114C12.329 15.8159 12.3822 15.7292 12.4493 15.6562L15.5381 12.2859L6.71986 12.2859C6.52894 12.2859 6.34584 12.2031 6.21084 12.0558C6.07584 11.9085 6 11.7087 6 11.5004C6 11.292 6.07584 11.0923 6.21084 10.945C6.34584 10.7976 6.52894 10.7149 6.71986 10.7149L15.5381 10.7149L12.4493 7.34322C12.3141 7.19566 12.2381 6.99552 12.2381 6.78684C12.2381 6.57816 12.3141 6.37802 12.4493 6.23046C12.5846 6.0829 12.768 6 12.9592 6C13.1505 6 13.3339 6.0829 13.4691 6.23046L17.7883 10.9433C17.8554 11.0163 17.9086 11.103 17.945 11.1985C17.9813 11.294 18 11.3963 18 11.4997C18 11.6031 17.9813 11.7055 17.945 11.8009C17.9086 11.8964 17.8554 11.9831 17.7883 12.0561L13.4691 16.769C13.4022 16.8422 13.3228 16.9003 13.2353 16.9399C13.1478 16.9796 13.054 17 12.9592 17C12.8645 17 12.7707 16.9796 12.6832 16.9399C12.5957 16.9003 12.5162 16.8422 12.4493 16.769Z"
+                      fill="#151E2D"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </Container>
+</section>
