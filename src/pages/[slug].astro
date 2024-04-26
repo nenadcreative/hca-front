@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../layouts/Container.astro";
+import fetchApi from "../lib/strapi";
+import qs from "qs";
+import type Page from "../interfaces/page";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+
+export async function getStaticPaths() {
+  const query = qs.stringify({
+    populate: {
+      SEO: { populate: "*" },
+      content: { populate: "*" },
+    },
+  });
+  const pageQuery = `text-pages?${query}`;
+  const pages = await fetchApi<Page[]>({
+    endpoint: pageQuery,
+    wrappedByKey: "data",
+  });
+
+  return pages.map((page) => ({
+    params: { slug: page.attributes.slug },
+    props: page,
+  }));
+}
+
+type Props = Page;
+
+const page = Astro.props;
+---
+
+<Layout title="Text Page">
+  <section class="py-24">
+    <Container>
+      <article class="prose prose-lg max-w-[800px] mx-auto">
+        <BlocksRenderer content={page.attributes.content} />
+      </article>
+    </Container>
+  </section>
+</Layout>
