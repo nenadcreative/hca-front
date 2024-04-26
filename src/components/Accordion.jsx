@@ -114,8 +114,8 @@ const AccordionContact = ({ question, children }) => (
 );
 const AccordionMenu = ({ question, children }) => (
   <Accordion.Root collapsible>
-    <AccordionItem className="   relative group animate-slide" value={question}>
-      <AccordionTrigger className=" trigger flex flex-row items-center justify-center lg:justify-start   text-center lg:text-left cursor-default    ">
+    <AccordionItem className="   relative  animate-slide" value={question}>
+      <AccordionTrigger className=" trigger flex flex-row items-center justify-center lg:justify-start group  text-center lg:text-left cursor-default    ">
         <p className="lg:text-body-sm hover:cursor-pointer">{question}</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"

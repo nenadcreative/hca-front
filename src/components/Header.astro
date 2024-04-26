@@ -25,7 +25,7 @@ console.log(mainDropdowns[0]);
 ---
 
 <header
-  class="top-0 sticky-header fixed opacity-0 -translate-y-[119px] ease-out duration-300 hidden lg:block w-full z-50"
+  class="top-0 sticky-header fixed opacity-0 -translate-y-[119px] ease-out duration-300 w-full z-40"
 >
   <div
     class="w-full py-2 bg-brand-blue text-body-sm hidden lg:block font-semibold text-white"
@@ -86,7 +86,7 @@ console.log(mainDropdowns[0]);
           </svg></a
         >
 
-        <!-- <a id="OpenBtn" class="hover:cursor-pointer lg:hidden">
+        <a id="OpenBtn" class="hover:cursor-pointer lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="43"
@@ -121,12 +121,12 @@ console.log(mainDropdowns[0]);
               stroke-width="4"
               stroke-linecap="round"></path>
           </svg></a
-        > -->
+        >
       </div>
     </Container>
   </div>
   <!-- Navbar -->
-  <!-- <div
+  <div
     id="navbar"
     class="bg-[#25272C] bg-opacity-45 absolute top-[79px] hidden left-0 w-full h-screen z-40"
   >
@@ -177,12 +177,18 @@ console.log(mainDropdowns[0]);
       <a class="mr-4" href="#">Student Portal</a>
       <a class="mr-4" href="#">FA Student Portal</a>
       <a class="mr-4" href="#">Library</a>
+      <a
+        class=` px-7 py-2 rounded-lg max-w-[140px]  justify-center font-semibold text-body-md  inline-flex  bg-brand-yellow hover:bg-brand-yellowDark text-dark-1`
+        href="#"
+        target="_self"
+        >Apply Now
+      </a>
     </div>
-  </div> -->
+  </div>
 
   <!-- end of Navbar -->
 </header>
-<header class="top-0 header sticky lg:static w-full z-50">
+<header class="top-0 header static w-full z-50">
   <div
     class="w-full py-2 bg-brand-blue text-body-sm hidden lg:block font-semibold text-white"
   >
@@ -332,6 +338,12 @@ console.log(mainDropdowns[0]);
       <a class="mr-4" href="#">Student Portal</a>
       <a class="mr-4" href="#">FA Student Portal</a>
       <a class="mr-4" href="#">Library</a>
+      <a
+        class=` px-7 py-2 rounded-lg max-w-[140px]  justify-center font-semibold text-body-md  inline-flex  bg-brand-yellow hover:bg-brand-yellowDark text-dark-1`
+        href="#"
+        target="_self"
+        >Apply Now
+      </a>
     </div>
   </div>
 
@@ -342,40 +354,71 @@ console.log(mainDropdowns[0]);
   // Get the header element
   const header = document.querySelector(".sticky-header");
 
+  // Store the previous scroll position
+  let prevScrollPos = window.pageYOffset;
+
   // Function to handle scroll event
   function handleScroll() {
-    // Check the scroll position
-    if (window.scrollY > 500) {
-      // Add a class to make the header sticky
+    // Get the current scroll position
+    const currentScrollPos = window.pageYOffset;
+
+    // Check the scroll direction
+    if (prevScrollPos > currentScrollPos) {
+      // Scroll up
       header.classList.remove("opacity-0", "-translate-y-[119px]");
     } else {
-      // Remove the class if scrolled back to the top
+      // Scroll down
       header.classList.add("opacity-0", "-translate-y-[119px]");
     }
+
+    // Update the previous scroll position
+    prevScrollPos = currentScrollPos;
   }
 
   // Listen for the scroll event
   window.addEventListener("scroll", handleScroll);
 
-  const OpenBtn = document.querySelector("#OpenBtn");
-  const CloseBtn = document.querySelector("#CloseBtn");
+  // Get all the OpenBtns and CloseBtns
+  const OpenBtns = document.querySelectorAll("#OpenBtn");
+  const CloseBtns = document.querySelectorAll("#CloseBtn");
 
-  const Navbar = document.querySelector("#navbar");
+  // Get all the Navbars
+  const Navbars = document.querySelectorAll("#navbar");
   const toogleLinks = document.querySelectorAll(".toogleLink");
 
-  OpenBtn.addEventListener("click", () => {
-    Navbar.classList.remove("hidden");
-    OpenBtn.classList.add("hidden");
-    CloseBtn.classList.remove("hidden");
-  });
-  CloseBtn.addEventListener("click", () => {
-    Navbar.classList.add("hidden");
-    OpenBtn.classList.remove("hidden");
-    CloseBtn.classList.add("hidden");
+  // Add event listeners to all OpenBtns
+  OpenBtns.forEach((OpenBtn) => {
+    OpenBtn.addEventListener("click", () => {
+      // Find the corresponding Navbar based on the index
+      const index = Array.from(OpenBtns).indexOf(OpenBtn);
+      const Navbar = Navbars[index];
+
+      // Show Navbar and toggle button visibility
+      Navbar.classList.remove("hidden");
+      OpenBtn.classList.add("hidden");
+      CloseBtns[index].classList.remove("hidden");
+    });
   });
 
+  // Add event listeners to all CloseBtns
+  CloseBtns.forEach((CloseBtn) => {
+    CloseBtn.addEventListener("click", () => {
+      // Find the corresponding Navbar based on the index
+      const index = Array.from(CloseBtns).indexOf(CloseBtn);
+      const Navbar = Navbars[index];
+
+      // Hide Navbar and toggle button visibility
+      Navbar.classList.add("hidden");
+      OpenBtns[index].classList.remove("hidden");
+      CloseBtn.classList.add("hidden");
+    });
+  });
+
+  // Add event listeners to all toogleLinks
   toogleLinks.forEach((link) => {
     link.addEventListener("click", () => {
+      // Toggle visibility of the corresponding Navbar
+      const Navbar = link.closest("#navbar");
       Navbar.classList.toggle("hidden");
     });
   });
