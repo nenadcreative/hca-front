@@ -5,9 +5,16 @@ import Container from "../layouts/Container.astro";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { Image } from "astro:assets";
 const { content } = Astro.props;
+
+const bg = content.background;
+
+const backgrounds = {
+  gray: "bg-gray",
+  white: "bg-white",
+};
 ---
 
-<section class="bg-gray">
+<section class=`${backgrounds[bg]}`>
   <Container
     classes="py-16 relative flex flex-col-reverse lg:flex-row gap-8 lg:gap-12 xl:gap-16 items-start lg:items-center "
   >
