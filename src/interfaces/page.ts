@@ -15,5 +15,6 @@ export default interface Page {
     featuredImage: any;
     content: any;
     shortDescription: any;
+    body: any;
   };
 }
