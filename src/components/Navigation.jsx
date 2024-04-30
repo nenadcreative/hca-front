@@ -76,7 +76,27 @@ const NavigationMenuDemo = ({ content }) => {
                               </ListItem>
                             ) : (
                               <div className="pb-3 border-b border-[#EDEEEF] flex flex-col items-start">
-                                <AccordionMenu
+                                <ListItem
+                                  className=" !border-none !pb-0"
+                                  key={childLinks.id}
+                                  href={childLinks.attributes.url}
+                                >
+                                  {childLinks.attributes.title}
+                                  <div className=" pl-2">
+                                    {childLinks.attributes.children.data.map(
+                                      (nestedChild) => (
+                                        <ListItem
+                                          className=" !border-none !pb-0"
+                                          key={nestedChild.id}
+                                          href={nestedChild.attributes.url}
+                                        >
+                                          {nestedChild.attributes.title}
+                                        </ListItem>
+                                      )
+                                    )}
+                                  </div>
+                                </ListItem>
+                                {/* <AccordionMenu
                                   question={childLinks.attributes.title}
                                 >
                                   {childLinks.attributes.children.data.map(
@@ -90,7 +110,7 @@ const NavigationMenuDemo = ({ content }) => {
                                       </ListItem>
                                     )
                                   )}
-                                </AccordionMenu>
+                                </AccordionMenu> */}
                               </div>
                             )}
                           </React.Fragment>
