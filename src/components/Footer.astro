@@ -16,6 +16,7 @@ const menus = (await fetchApi({
 };
 
 const footerLinks = menus[0].attributes.items.data;
+const legalLinks = menus[2].attributes.items.data;
 
 const date = new Date();
 const year = date.getFullYear();
@@ -197,8 +198,13 @@ const year = date.getFullYear();
         </p>
       </div>
       <div class="flex flex-col sm:flex-row gap-6">
-        <a href="/privacy-policy" class="text-body-xs">Privacy Policy</a>
-        <a href="/terms-of-service" class="text-body-xs">Terms of Service</a>
+        {
+          legalLinks.map((link) => (
+            <a href={link.attributes.url} class="text-body-xs">
+              {link.attributes.title}
+            </a>
+          ))
+        }
       </div>
     </div>
   </Container>
