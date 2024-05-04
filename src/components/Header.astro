@@ -147,6 +147,28 @@ console.log(mainDropdowns[0]);
                     </a>
                   </li>
                 ) : (
+                  // <li>
+                  //   <a
+                  //     class="toogleLink text-white"
+                  //     href={childDropdown.attributes.url}
+                  //   >
+                  //     {childDropdown.attributes.title}
+                  //   </a>
+                  //   <ul>
+                  //     {childDropdown.attributes.children.data.map(
+                  //       (childLinks) => (
+                  //         <li>
+                  //           <a
+                  //             class="toogleLink text-dark-1"
+                  //             href={childLinks.attributes.url}
+                  //           >
+                  //             {childLinks.attributes.title}
+                  //           </a>
+                  //         </li>
+                  //       )
+                  //     )}
+                  //   </ul>
+                  // </li>
                   <AccordionMenu
                     client:load
                     question={childDropdown.attributes.title}
@@ -160,6 +182,20 @@ console.log(mainDropdowns[0]);
                           >
                             {childLinks.attributes.title}
                           </a>
+                          <ul class=" flex flex-col">
+                            {childLinks.attributes.children.data.map(
+                              (nestedChild) => (
+                                <li>
+                                  <a
+                                    class="toogleLink text-brand-yellow"
+                                    href={nestedChild.attributes.url}
+                                  >
+                                    {nestedChild.attributes.title}
+                                  </a>
+                                </li>
+                              )
+                            )}
+                          </ul>
                         </li>
                       )
                     )}
