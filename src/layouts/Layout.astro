@@ -1,6 +1,5 @@
 ---
 interface Props {
-  title: string;
   metaTitle: string;
   metaDescription: string;
   metaImage: string;
@@ -18,7 +17,7 @@ import "@fontsource/titillium-web/700.css";
 import "@fontsource/titillium-web/900.css";
 
 import "../styles/base.css";
-const { title, metaDescription, metaTitle, metaImage } = Astro.props;
+const { metaDescription, metaTitle, metaImage } = Astro.props;
 ---
 
 <!doctype html>
@@ -33,7 +32,7 @@ const { title, metaDescription, metaTitle, metaImage } = Astro.props;
     <meta property="og:image" content={metaImage} />
     <meta property="twitter:image" content={metaImage} />
     <meta property="twitter:card" content={metaImage} />
-    <title>{title}</title>
+    <title>{metaTitle}</title>
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
     <script src="/pagefind/pagefind-ui.js" is:inline></script>
   </head>

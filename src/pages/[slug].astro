@@ -7,12 +7,6 @@ import type Page from "../interfaces/page";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 export async function getStaticPaths() {
-  const query = qs.stringify({
-    populate: {
-      SEO: { populate: "*" },
-      content: { populate: "*" },
-    },
-  });
   const pageQuery = `text-pages?populate=deep`;
   const pages = await fetchApi<Page[]>({
     endpoint: pageQuery,
@@ -34,9 +28,8 @@ const page = Astro.props;
   metaImage={page.attributes.SEO.metaImage.data !== null
     ? page.attributes.SEO.metaImage.data.attributes.url
     : "/OG.png"}
-  title={page.attributes.title}
-  metaTitle=""
-  metaDescription=""
+  metaTitle={page.attributes.SEO.metaTitle}
+  metaDescription={page.attributes.SEO.metaDescription}
 >
   <section class="py-24">
     <Container>
