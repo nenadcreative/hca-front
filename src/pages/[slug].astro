@@ -13,7 +13,7 @@ export async function getStaticPaths() {
       content: { populate: "*" },
     },
   });
-  const pageQuery = `text-pages?${query}`;
+  const pageQuery = `text-pages?populate=deep`;
   const pages = await fetchApi<Page[]>({
     endpoint: pageQuery,
     wrappedByKey: "data",
@@ -31,7 +31,7 @@ const page = Astro.props;
 ---
 
 <Layout
-  metaImage={page.attributes.SEO.metaImage.data
+  metaImage={page.attributes.SEO.metaImage.data !== null
     ? page.attributes.SEO.metaImage.data.attributes.url
     : "/OG.png"}
   title={page.attributes.title}

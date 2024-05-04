@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React from "react";
 import classNames from "classnames";
 import * as Accordion from "@radix-ui/react-accordion";
 
