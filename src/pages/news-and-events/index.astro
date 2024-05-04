@@ -30,7 +30,14 @@ const content = pagesData.attributes;
 // console.log(page.data[0].attributes);
 ---
 
-<Layout title="News and Events">
+<Layout
+  metaImage={content.SEO.metaImage.data
+    ? content.SEO.metaImage.data.attributes.url
+    : "/OG.png"}
+  title={content.Hero.title}
+  metaTitle={content.SEO.metaTitle}
+  metaDescription={content.SEO.metaDescription}
+>
   <section class="py-24 bg-section-bg object-cover bg-no-repeat">
     <Container
       classes="flex flex-col justify-between lg:flex-row lg:items-center gap-24 lg:gap-16"

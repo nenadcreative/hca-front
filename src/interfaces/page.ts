@@ -6,7 +6,7 @@ export default interface Page {
   attributes: {
     title: string;
     slug: string;
-    SEO: object;
+    SEO: any;
     sections: object;
     category: string;
     attributes: object;

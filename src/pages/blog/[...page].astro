@@ -18,7 +18,6 @@ const pagesData = await fetchApi<Page>({
 });
 
 const content = pagesData.attributes;
-console.log(content);
 
 export async function getStaticPaths({ paginate }) {
   const query = `blogs?populate=deep`;
@@ -36,10 +35,16 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { page }: { page: any } = Astro.props;
-console.log(page.data[0].attributes);
 ---
 
-<Layout title="Blog">
+<Layout
+  metaImage={content.SEO.metaImage.data
+    ? content.SEO.metaImage.data.attributes.url
+    : "/OG.png"}
+  title={content.Hero.title}
+  metaTitle={content.SEO.metaTitle}
+  metaDescription={content.SEO.metaDescription}
+>
   <section class="py-24 bg-section-bg object-cover bg-no-repeat">
     <Container
       classes="flex flex-col justify-between lg:flex-row lg:items-center gap-24 lg:gap-16"

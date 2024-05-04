@@ -1,6 +1,9 @@
 ---
 interface Props {
   title: string;
+  metaTitle: string;
+  metaDescription: string;
+  metaImage: string;
 }
 
 import Footer from "../components/Footer.astro";
@@ -15,17 +18,21 @@ import "@fontsource/titillium-web/700.css";
 import "@fontsource/titillium-web/900.css";
 
 import "../styles/base.css";
-const { title } = Astro.props;
+const { title, metaDescription, metaTitle, metaImage } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content={metaDescription} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:image" content={metaImage} />
+    <meta property="twitter:image" content={metaImage} />
+    <meta property="twitter:card" content={metaImage} />
     <title>{title}</title>
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
     <script src="/pagefind/pagefind-ui.js" is:inline></script>

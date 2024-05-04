@@ -30,7 +30,14 @@ type Props = Page;
 const page = Astro.props;
 ---
 
-<Layout title="Text Page">
+<Layout
+  metaImage={page.attributes.SEO.metaImage.data
+    ? page.attributes.SEO.metaImage.data.attributes.url
+    : "/OG.png"}
+  title={page.attributes.title}
+  metaTitle=""
+  metaDescription=""
+>
   <section class="py-24">
     <Container>
       <article class="prose prose-lg max-w-[800px] mx-auto">
