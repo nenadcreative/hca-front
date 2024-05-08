@@ -30,6 +30,7 @@ import ContactForm from "../sections/ContactForm.astro";
 import ContactRepository from "../sections/ContactRepository.astro";
 import FeaturedDoubleLinkList from "../sections/FeaturedDoubleLinkList.astro";
 import LatestBlogs from "../sections/LatestBlogs.astro";
+import SocialMedia from "../sections/SocialMedia.astro";
 
 const { content } = Astro.props;
 ---
@@ -101,6 +102,8 @@ const { content } = Astro.props;
           return <FeaturedDoubleLinkList content={section} />;
         case "sections.latest-blogs":
           return <LatestBlogs content={section} />;
+        case "sections.social-media-section":
+          return <SocialMedia content={section} />;
         default:
           return null;
       }
