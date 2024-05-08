@@ -3,11 +3,10 @@ import { Image } from "astro:assets";
 import Container from "../layouts/Container.astro";
 
 const { content } = Astro.props;
-console.log(content);
 ---
 
 <section class="py-16 bg-gray">
-  <Container classes="flex flex-col items-center gap-12">
+  <Container classes="flex flex-col items-center gap-10">
     <h2>{content.title}</h2>
     <div
       class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 gap-2"
