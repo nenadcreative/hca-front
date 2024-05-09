@@ -21,7 +21,6 @@ const latestPosts = blogPosts.slice(0, 3);
 console.log(latestPosts);
 
 const { content } = Astro.props;
-console.log(content);
 ---
 
 <section class="py-24 bg-gray bg-section-bg bg-no-repeat bg-cover">
@@ -32,7 +31,7 @@ console.log(content);
     >
       {
         latestPosts.map((item) => {
-          const link = `/blogs/${item.attributes.slug}`;
+          const link = `/blog/${item.attributes.slug}`;
           return (
             <a
               class="rounded-lg overflow-hidden group bg-white shadow-lg"
