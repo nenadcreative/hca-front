@@ -20,8 +20,12 @@ export async function getStaticPaths() {
           faqs: { populate: "*" },
           directors: { populate: "*" },
           cards: { populate: "*" },
-          contactInfo: { populate: "*" },
-          DetailedContactInfo: { populate: "*" },
+          contactInfo: { populate: { icon: { populate: "*" } } },
+          DetailedContactInfo: {
+            populate: {
+              contactInfo: { populate: { icon: { populate: "*" } } },
+            },
+          },
           image: { populate: "*" },
           bgImage: { populate: "*" },
           link: { populate: "*" },
