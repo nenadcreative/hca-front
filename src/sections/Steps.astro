@@ -1,6 +1,7 @@
 ---
 import Container from "../layouts/Container.astro";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import Modal from "../components/Modal";
 
 import ButtonLink from "../components/ButtonLink.astro";
 
@@ -14,7 +15,7 @@ const backgrounds = {
   white: "bg-white",
 };
 
-console.log(content);
+
 
 ---
 
@@ -107,17 +108,25 @@ console.log(content);
 
     </div>
 
-    {
-      content.button && (
-        <div class="mt-12 mx-auto flex justify-center">
-          <ButtonLink
-            button={content.button}
-            target={content.button.target}
-            variant={content.button.type}
-          />
-        </div>
-      )
-    }
+    <div class="">
+      {
+        content.button && (
+          <>
+            {content.button.type === "modal" ? (
+              <Modal buttonText={content.button.text} client:load />
+            ) : (
+              <ButtonLink
+                button={content.button}
+                variant={content.button.type}
+              />
+            )}
+  
+            
+            
+          </>
+        )
+      }
+      </div>
 
    
   </Container>

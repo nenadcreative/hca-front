@@ -91,24 +91,21 @@ const backgrounds = {
         ))
       }
     </div>
-    {
-      content.button && (
-        <>
-          {content.button.type === "modal" ? (
-            <Modal buttonText={content.button.text} client:load />
-          ) : (
-            <ButtonLink button={content.button} variant={content.button.type} />
-          )}
-
-          <div class="mt-8">
-            <ButtonLink
-              button={content.button}
-              target={content.button.target}
-              variant={content.button.type}
-            />
-          </div>
-        </>
-      )
-    }
+    <div class="mt-8">
+      {
+        content.button && (
+          <>
+            {content.button.type === "modal" ? (
+              <Modal buttonText={content.button.text} client:load />
+            ) : (
+              <ButtonLink
+                button={content.button}
+                variant={content.button.type}
+              />
+            )}
+          </>
+        )
+      }
+    </div>
   </Container>
 </section>

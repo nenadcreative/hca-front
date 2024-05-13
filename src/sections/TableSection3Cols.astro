@@ -2,6 +2,7 @@
 import Container from "../layouts/Container.astro";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import ButtonLink from "../components/ButtonLink.astro";
+import Modal from "../components/Modal";
 
 const { content } = Astro.props;
 
@@ -11,8 +12,6 @@ const backgrounds = {
   gray: "bg-gray",
   white: "bg-white",
 };
-
-console.log(content.table.length);
 ---
 
 <section class=` ${backgrounds[bg]}`>
@@ -90,17 +89,22 @@ console.log(content.table.length);
       </table>
     </div>
     <!-- end of Desktop and tablet table -->
-    {
-      content.button && (
-        <div class="mx-auto mt-12">
-          <ButtonLink
-            button={content.button}
-            target={content.button.target}
-            variant={content.button.type}
-          />
-        </div>
-      )
-    }
+    <div class="">
+      {
+        content.button && (
+          <>
+            {content.button.type === "modal" ? (
+              <Modal buttonText={content.button.text} client:load />
+            ) : (
+              <ButtonLink
+                button={content.button}
+                variant={content.button.type}
+              />
+            )}
+          </>
+        )
+      }
+    </div>
 
     <div class="bg-brand-blue w-[250px] h-6 absolute top-0 right-0"></div>
     <div class="bg-brand-yellow w-[250px] h-6 absolute bottom-0 right-0"></div>

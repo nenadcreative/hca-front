@@ -17,13 +17,22 @@ const { content } = Astro.props;
     <div class="lg:max-w-[806px] min-w-1/2 flex-grow">
       <h1 class="mb-5"><DecoratedText content={content.title} /></h1>
       <p class="text-body-lg font-semibold">{content.description}</p>
-      {
-        content.button && (
-          <div class="mt-6 lg:mt-11">
-            <ButtonLink button={content.button} variant={content.button.type} />
-          </div>
-        )
-      }
+      <div class="mt-8">
+        {
+          content.button && (
+            <>
+              {content.button.type === "modal" ? (
+                <Modal buttonText={content.button.text} client:load />
+              ) : (
+                <ButtonLink
+                  button={content.button}
+                  variant={content.button.type}
+                />
+              )}
+            </>
+          )
+        }
+      </div>
     </div>
     <div
       class="relative min-w-[376px] w-full md:flex md:justify-end lg:justify-start lg:w-auto"

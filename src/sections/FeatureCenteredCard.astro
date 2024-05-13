@@ -40,38 +40,32 @@ const backgrounds = {
       >
         <BlocksRenderer content={content.description} />
       </div>
+      <div class="mt-8">
+        {
+          content.button && (
+            <>
+              {content.button.type === "modal" ? (
+                <Modal buttonText={content.button.text} client:load />
+              ) : (
+                <ButtonLink
+                  button={content.button}
+                  variant={content.button.type}
+                />
+              )}
+            </>
+          )
+        }
+      </div>
       {
-        content.button && (
+        content.background === "dark" ? (
           <>
-            {content.button.type === "modal" ? (
-              <Modal buttonText={content.button.text} client:load />
-            ) : (
-              <ButtonLink
-                button={content.button}
-                variant={content.button.type}
-              />
-            )}
-
-            <div class="mt-8">
-              <ButtonLink
-                button={content.button}
-                target={content.button.target}
-                variant={content.button.type}
-              />
-            </div>
+            <div class="absolute top-0 left-0 bg-brand-blue h-6 w-[250px]" />
+            <div class="absolute bottom-0 right-0 bg-brand-yellow h-6 w-[250px]" />
           </>
+        ) : (
+          ""
         )
       }
     </div>
-    {
-      content.background === "dark" ? (
-        <>
-          <div class="absolute top-0 left-0 bg-brand-blue h-6 w-[250px]" />
-          <div class="absolute bottom-0 right-0 bg-brand-yellow h-6 w-[250px]" />
-        </>
-      ) : (
-        ""
-      )
-    }
   </Container>
 </section>

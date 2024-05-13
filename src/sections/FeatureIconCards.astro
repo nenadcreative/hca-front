@@ -53,6 +53,7 @@ const backgrounds = {
         ))
       }
     </div>
+    <div class="mt-8">
     {
       content.button && (
         <>
@@ -65,15 +66,11 @@ const backgrounds = {
             />
           )}
 
-          <div class="mt-8">
-            <ButtonLink
-              button={content.button}
-              target={content.button.target}
-              variant={content.button.type}
-            />
-          </div>
+          
+          
         </>
       )
     }
+    </div>
   </Container>
 </section>
