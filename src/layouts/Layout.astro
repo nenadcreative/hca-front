@@ -17,6 +17,7 @@ import "@fontsource/titillium-web/700.css";
 import "@fontsource/titillium-web/900.css";
 
 import "../styles/base.css";
+
 const { metaDescription, metaTitle, metaImage } = Astro.props;
 ---
 
@@ -39,6 +40,7 @@ const { metaDescription, metaTitle, metaImage } = Astro.props;
   <body>
     <main class="min-h-screen relative">
       <Header />
+
       <slot />
       <PrefooterLogos />
       <Footer />

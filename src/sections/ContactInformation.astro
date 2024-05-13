@@ -1,6 +1,7 @@
 ---
 import Container from "../layouts/Container.astro";
 import ButtonLink from "../components/ButtonLink.astro";
+import Modal from "../components/Modal";
 import { Image } from "astro:assets";
 
 const { content } = Astro.props;
@@ -29,11 +30,24 @@ const backgrounds = {
         <p class="text-body-lg font-semibold mb-10">{content.description}</p>
         {
           content.button && (
-            <ButtonLink
-              button={content.button}
-              target={content.button.target}
-              variant={content.button.type}
-            />
+            <>
+              {content.button.type === "modal" ? (
+                <Modal buttonText={content.button.text} client:load />
+              ) : (
+                <ButtonLink
+                  button={content.button}
+                  variant={content.button.type}
+                />
+              )}
+
+              <div class="mt-8">
+                <ButtonLink
+                  button={content.button}
+                  target={content.button.target}
+                  variant={content.button.type}
+                />
+              </div>
+            </>
           )
         }
       </div>

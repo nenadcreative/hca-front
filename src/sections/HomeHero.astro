@@ -5,6 +5,7 @@ import DecoratedText from "../components/DecoratedText";
 import sectionBg from "../assets/section-bg.svg";
 import logoDecoration from "../assets/logo-decoration.svg";
 import { Image } from "astro:assets";
+import Modal from "../components/Modal";
 const { content } = Astro.props;
 ---
 
@@ -22,7 +23,13 @@ const { content } = Astro.props;
       </h1>
       <div class="sm:max-w-md xl:pt-2 font-semibold text-body-lg">
         <p class="mb-4 xl:mb-8">{content.description}</p>
-        <ButtonLink button={content.button} variant={content.button.type} />
+        {
+          content.button?.type === "modal" ? (
+            <Modal buttonText={content.button.text} client:load />
+          ) : (
+            <ButtonLink button={content.button} variant={content.button.type} />
+          )
+        }
       </div>
     </div>
     <div class="flex w-full justify-between gap-2 items-end pt-11 relative">

@@ -4,6 +4,7 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { Image } from "astro:assets";
 import DecoratedText from "../components/DecoratedText";
 import ButtonLink from "../components/ButtonLink.astro";
+import Modal from "../components/Modal";
 
 const { content } = Astro.props;
 
@@ -49,12 +50,24 @@ const backgrounds = {
         <BlocksRenderer content={content.description} />
         {
           content.button && (
-            <div class="mt-6">
-              <ButtonLink
-                button={content.button}
-                target={content.button.target}
-              />
-            </div>
+            <>
+              {content.button.type === "modal" ? (
+                <Modal buttonText={content.button.text} client:load />
+              ) : (
+                <ButtonLink
+                  button={content.button}
+                  variant={content.button.type}
+                />
+              )}
+
+              <div class="mt-8">
+                <ButtonLink
+                  button={content.button}
+                  target={content.button.target}
+                  variant={content.button.type}
+                />
+              </div>
+            </>
           )
         }
       </div>
