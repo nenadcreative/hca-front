@@ -2,8 +2,8 @@
 import Container from "../layouts/Container.astro";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import ButtonLink from "../components/ButtonLink.astro";
-import { Image } from "astro:assets";
 import Modal from "../components/Modal";
+import { Image } from "astro:assets";
 
 const { content } = Astro.props;
 
@@ -46,15 +46,17 @@ console.log(content);
       </div>
       <div class="flex flex-col md:flex-row items-start gap-4">
         {
-          content.button.map((btn) =>
-            btn.type === "modal" ? (
-              <Modal buttonText={content.button.text} client:load />
-            ) : (
-              <ButtonLink
-                button={content.button}
-                variant={content.button.type}
-              />
-            )
+          content.button?.map(
+            (btn) =>
+              btn && (
+                <>
+                  {btn.type === "modal" ? (
+                    <Modal buttonText={btn.text} client:load />
+                  ) : (
+                    <ButtonLink button={btn} variant={btn.type} />
+                  )}
+                </>
+              )
           )
         }
       </div>
