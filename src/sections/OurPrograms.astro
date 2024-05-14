@@ -44,17 +44,7 @@ const { content } = Astro.props;
         <div class="font-semibold">
           <BlocksRenderer content={content.ctaDescription} />
         </div>
-        {
-          content.ctaButton && (
-            <div class="mt-12">
-              <ButtonLink
-                button={content.ctaButton}
-                target={content.ctaButton.target}
-                variant={content.ctaButton.type}
-              />
-            </div>
-          )
-        }
+
         <div class="mt-8">
           {
             content.ctaButton && (

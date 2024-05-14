@@ -28,28 +28,22 @@ const backgrounds = {
         }
         <h2 class="mb-6">{content.title}</h2>
         <p class="text-body-lg font-semibold mb-10">{content.description}</p>
-        {
-          content.button && (
-            <>
-              {content.button.type === "modal" ? (
-                <Modal buttonText={content.button.text} client:load />
-              ) : (
-                <ButtonLink
-                  button={content.button}
-                  variant={content.button.type}
-                />
-              )}
-
-              <div class="mt-8">
-                <ButtonLink
-                  button={content.button}
-                  target={content.button.target}
-                  variant={content.button.type}
-                />
-              </div>
-            </>
-          )
-        }
+        <div class="mt-8">
+          {
+            content.button && (
+              <>
+                {content.button.type === "modal" ? (
+                  <Modal buttonText={content.button.text} client:load />
+                ) : (
+                  <ButtonLink
+                    button={content.button}
+                    variant={content.button.type}
+                  />
+                )}
+              </>
+            )
+          }
+        </div>
       </div>
       <div
         class="w-full max-w-[650px] flex flex-col sm:flex-row gap-12 sm:gap-6"
