@@ -22,7 +22,7 @@ const TabsNewsAndEvents = ({ content }) => {
 
   return (
     <Tabs.Root
-      defaultValue="winter 2024"
+      defaultValue="fall 2024"
       className="w-full flex flex-col gap-16"
     >
       <Tabs.List
