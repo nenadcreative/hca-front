@@ -22,12 +22,12 @@ const MyForm = () => {
       };
 
       const response = await axios.post(
-        "https://inspired-star-4ccba8cba8.strapiapp.com/api/ezforms/submit",
+        "https://hca-cms-wuxg2.ondigitalocean.app/api/ezforms/submit",
         { formData }
       );
 
       // Handle success response
-      alert("uspjelo");
+      
       console.log("Form submitted successfully", response);
       // Reset form after successful submission
       reset();
