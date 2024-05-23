@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-const MyForm = () => {
+const TranscriptForm = () => {
   const {
     register,
     handleSubmit,
@@ -21,7 +21,8 @@ const MyForm = () => {
         phone: Phone,
         message: Message,
       };
-      const formName = 'Contact Form'
+      const formName = 'Transcript Form'
+     
 
       const response = await axios.post(
         "https://hca-cms-wuxg2.ondigitalocean.app/api/ezforms/submit",
@@ -110,4 +111,4 @@ const MyForm = () => {
   );
 };
 
-export default MyForm;
+export default TranscriptForm;
