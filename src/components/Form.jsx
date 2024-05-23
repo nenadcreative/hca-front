@@ -8,6 +8,7 @@ const MyForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -27,7 +28,7 @@ const MyForm = () => {
       );
 
       // Handle success response
-      
+      alert("Form submitted successfully");
       console.log("Form submitted successfully", response);
       // Reset form after successful submission
       reset();
