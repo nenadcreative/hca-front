@@ -102,7 +102,7 @@ const MyForm = () => {
       )}
 
       <input
-        className="bg-brand-blue hover:bg-brand-blue2 text-white px-8 py-4 rounded-lg min-w-[200px] inline-flex justify-center font-semibold text-body-md mt-6  "
+        className="bg-brand-blue cursor-pointer hover:bg-brand-blue2 text-white px-8 py-4 rounded-lg min-w-[200px] inline-flex justify-center font-semibold text-body-md mt-6  "
         type="submit"
       />
     </form>
