@@ -6,17 +6,17 @@ import fetchApi from "../lib/strapi";
 
 const menuquery = `menus?nested&populate=*`;
 
-const menus = (await fetchApi({
+const menus: any = await fetchApi({
   endpoint: menuquery,
   wrappedByKey: "data", // the key to unwrap the response
-})) as {
-  attributes: {
-    items: { title: string; url: string };
-  };
-};
+});
 
-const footerLinks = menus[0].attributes.items.data;
-const legalLinks = menus[2].attributes.items.data;
+const headerMenu = menus.filter((menu) => menu.id === 2)[0];
+
+const footerLinks = menus.filter((menu) => menu.id === 2)[0].attributes.items
+  .data;
+const legalLinks = menus.filter((menu) => menu.id === 4)[0].attributes.items
+  .data;
 
 const date = new Date();
 const year = date.getFullYear();

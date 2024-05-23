@@ -11,18 +11,13 @@ import logo from "../assets/logo.svg";
 
 const menuquery = `menus?nested&populate=*`;
 
-const menus = (await fetchApi({
+const menus: any = await fetchApi({
   endpoint: menuquery,
   wrappedByKey: "data", // the key to unwrap the response
-})) as {
-  attributes: {
-    items: { title: string; url: string };
-  };
-};
+});
 
-const mainDropdowns = menus[1].attributes.items.data;
-
-console.log(mainDropdowns[0]);
+const headerMenu = menus.filter((menu) => menu.id === 2)[0];
+const mainDropdowns = headerMenu.attributes.items.data;
 ---
 
 <header class="top-0 sticky-header sticky ease-out duration-300 w-full z-40">
