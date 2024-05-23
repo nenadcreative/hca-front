@@ -4,6 +4,7 @@ import NavigationMenuDemo from "../components/Navigation";
 import fetchApi from "../lib/strapi";
 import { AccordionMenu } from "./Accordion";
 import ButtonLink from "./ButtonLink.astro";
+import Modal from "./Modal";
 
 import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
@@ -63,12 +64,8 @@ console.log(mainDropdowns[0]);
         />
       </a>
       <div><NavigationMenuDemo content={mainDropdowns} client:load /></div>
-      <a
-        class=` px-7 py-2 rounded-lg max-w-[140px]  justify-center font-semibold text-body-md hidden xl:inline-flex  inline-block bg-brand-blue hover:bg-brand-blue2 text-white`
-        href="#"
-        target="_self"
-        >Apply Now
-      </a>
+
+      <Modal buttonText={"Apply Now"} client:load />
       <div class="flex flex-row gap-8 items-center lg:hidden">
         <a href="/search"
           ><svg
