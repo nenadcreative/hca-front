@@ -23,7 +23,7 @@ const Modal = ({ buttonText, navButton = false }) => (
         {/*}
         <ApplyForm></ApplyForm>
       */}
-        <div id="form-widget-container bg-dark-1 min-h-[10vh]"></div>
+        <div id="form-widget-container "></div>
         <script
           src="https://verity.hcas.edu/FormCustomer/GetCustomerFormWidget
 ?buttonBackground=%230395CE
