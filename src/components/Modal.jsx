@@ -20,7 +20,41 @@ const Modal = ({ buttonText, navButton = false }) => (
     <Dialog.Portal>
       <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
       <Dialog.Content className="data-[state=open]:animate-contentShow fixed z-50 top-[50%] left-[50%] max-h-[85vh] w-[50vw] max-w-[1120px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+        {/*}
         <ApplyForm></ApplyForm>
+      */}
+        <div id="form-widget-container bg-dark-1 min-h-[10vh]"></div>
+        <script
+          src="https://verity.hcas.edu/FormCustomer/GetCustomerFormWidget
+?buttonBackground=%230395CE
+&buttonFontColor=%23FFFFFF
+&formInputBackground=%23FFFFFF
+&formInputColor=white
+&IsFirstNameRequired=true
+&IsLastNameRequired=true
+&IsPhoneRequired=true
+&IsEmailRequired=true
+&IsCampusRequired=true
+&IsProgramOfInterestRequired=true
+&IsAppointmentDateRequired=false
+&campaignCodeField=school
+&campaignTypeField=school
+&showPlaceholders=true
+&showLabels=false
+&isFirstNameShown=true
+&isLastNameShown=true
+&isPhoneShown=true
+&isEmailShown=true
+&isCampusShown=true
+&isProgramOfInterestShown=true
+&isAppointmentDateShown=false
+&referrerGuid=433A485E-CF1F-49B1-B111-37969EAABB3C
+&schoolId=1
+&leadSourceId=1
+&backgroundImage=null
+&logoUrl=https%3A%2F%2Fhca-front.vercel.app%2F_astro%2Flogo.no13WfKI_1BBLK0.svg"
+          id="verity-form-snippet"
+        ></script>
 
         <Dialog.Close asChild>
           <button
