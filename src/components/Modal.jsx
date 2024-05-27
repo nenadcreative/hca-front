@@ -3,6 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import CalendarForm from "./CalendarForm.jsx";
 import ApplyForm from "./ApplyForm.jsx";
+import EmbedForm from "./embedForm.astro";
 
 const Modal = ({ buttonText, navButton = false }) => (
   <Dialog.Root>
@@ -23,38 +24,7 @@ const Modal = ({ buttonText, navButton = false }) => (
         {/*}
         <ApplyForm></ApplyForm>
       */}
-        <div id="form-widget-container "></div>
-        <script
-          src="https://verity.hcas.edu/FormCustomer/GetCustomerFormWidget
-?buttonBackground=%230395CE
-&buttonFontColor=%23FFFFFF
-&formInputBackground=%23FFFFFF
-&formInputColor=white
-&IsFirstNameRequired=true
-&IsLastNameRequired=true
-&IsPhoneRequired=true
-&IsEmailRequired=true
-&IsCampusRequired=true
-&IsProgramOfInterestRequired=true
-&IsAppointmentDateRequired=false
-&campaignCodeField=school
-&campaignTypeField=school
-&showPlaceholders=true
-&showLabels=false
-&isFirstNameShown=true
-&isLastNameShown=true
-&isPhoneShown=true
-&isEmailShown=true
-&isCampusShown=true
-&isProgramOfInterestShown=true
-&isAppointmentDateShown=false
-&referrerGuid=433A485E-CF1F-49B1-B111-37969EAABB3C
-&schoolId=1
-&leadSourceId=1
-&backgroundImage=null
-&logoUrl=https%3A%2F%2Fhca-front.vercel.app%2F_astro%2Flogo.no13WfKI_1BBLK0.svg"
-          id="verity-form-snippet"
-        ></script>
+        <EmbedForm></EmbedForm>
 
         <Dialog.Close asChild>
           <button
