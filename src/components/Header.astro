@@ -60,7 +60,12 @@ const mainDropdowns = headerMenu.attributes.items.data;
       </a>
       <div><NavigationMenuDemo content={mainDropdowns} client:load /></div>
       <div class="hidden xl:flex">
-        <Modal navButton={true} buttonText={"Apply Now"} client:load />
+        <a
+          class=` px-7 py-2 rounded-lg max-w-[140px]  justify-center font-semibold text-body-md hidden xl:inline-flex  inline-block bg-brand-blue hover:bg-brand-blue2 text-white`
+          href="/apply-now"
+          target="_self"
+          >Apply Now
+        </a>
       </div>
 
       <div class="flex flex-row gap-8 items-center lg:hidden">
