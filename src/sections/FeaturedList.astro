@@ -67,7 +67,7 @@ console.log(content);
                     <p class=" font-semibold">{item.title}</p>
                   </a>
                 );
-              } else if (item.file.data.attributes.url) {
+              } else if (item.file.data && item.file.data) {
                 return (
                   <a
                     href={item.file.data.attributes.url}
