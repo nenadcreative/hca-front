@@ -95,7 +95,8 @@ const MyForm = () => {
       <div className="flex flex-row items-center gap-3">
         <input type="checkbox" {...register("Terms", { required: true })} />
         <label className=" text-body-md" htmlFor="Terms">
-          I accept the Terms
+          I authorize Hope College of Arts & Sciences to contact me via phone or
+          email.
         </label>
       </div>
       {errors.Terms && (
