@@ -21,11 +21,11 @@ const MyForm = () => {
         phone: Phone,
         message: Message,
       };
-      const formName = 'Contact Form'
+      const formName = "Contact Form";
 
       const response = await axios.post(
         "https://hca-cms-wuxg2.ondigitalocean.app/api/ezforms/submit",
-        { formData , formName }
+        { formData, formName }
       );
 
       // Handle success response
@@ -44,11 +44,11 @@ const MyForm = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <label className="mb-2" htmlFor="Name">
-        Name
+        Name <span className="text-red-500">*</span>
       </label>
 
       <input
-        placeholder="Placeholder"
+        placeholder="Your Name"
         className="border border-dark-3 rounded-lg w-full px-3 py-2 focus-visible:border-brand-blue focus-visible:border outline-none focus-visible:placeholder:text-dark-2 mb-4"
         {...register("Name", { required: true })}
       />
@@ -56,10 +56,10 @@ const MyForm = () => {
         <span className=" bg-[#ff3333] p-px">This field is required</span>
       )}
       <label className="mb-2" htmlFor="Email">
-        Email
+        Email <span className="text-red-500">*</span>
       </label>
       <input
-        placeholder="Placeholder"
+        placeholder="Your Email"
         className="border border-dark-3 rounded-lg w-full px-3 py-2 outline-none focus-visible:border-brand-blue focus-visible:placeholder:text-dark-2 mb-4"
         {...register("Email", { required: true })}
       />
@@ -68,11 +68,11 @@ const MyForm = () => {
       )}
 
       <label className="mb-2" htmlFor="Phone">
-        Phone
+        Phone <span className="text-red-500">*</span>
       </label>
 
       <input
-        placeholder="Placeholder"
+        placeholder="Your Phone"
         className="border border-dark-3 rounded-lg w-full outline-none px-3 py-2 focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2 mb-4"
         {...register("Phone", { required: true })}
       />
@@ -80,7 +80,7 @@ const MyForm = () => {
         <span className=" bg-[#ff3333] p-px">This field is required</span>
       )}
       <label className="mb-2" htmlFor="Message">
-        Message
+        Message <span className="text-red-500">*</span>
       </label>
 
       <textarea
