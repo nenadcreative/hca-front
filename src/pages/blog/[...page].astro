@@ -38,7 +38,7 @@ const { page }: { page: any } = Astro.props;
 ---
 
 <Layout
-  metaImage={content.SEO.metaImage.data
+  metaImage={content.SEO.metaImage && content.SEO.metaImage.data
     ? content.SEO.metaImage.data.attributes.url
     : "/OG.png"}
   metaTitle={content.SEO.metaTitle}
