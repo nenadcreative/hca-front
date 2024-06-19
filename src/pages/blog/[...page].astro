@@ -93,7 +93,7 @@ const { page }: { page: any } = Astro.props;
             fill="white"></path>
         </svg>
         {
-          content.Hero.image.data.attributes.url && (
+          content.Hero.image.data.attributes && (
             <Image
               src={content.Hero.image.data.attributes.url}
               inferSize
@@ -117,12 +117,15 @@ const { page }: { page: any } = Astro.props;
                 class="rounded-lg overflow-hidden group bg-white shadow-lg"
                 href={link}
               >
-                <Image
-                  src={item.attributes.featuredImage.data.attributes.url}
-                  inferSize
-                  class="w-full h-[268px] object-cover"
-                  alt={item.attributes.title}
-                />
+                {item.attributes.featuredImage.data && (
+                  <Image
+                    src={item.attributes.featuredImage.data.attributes.url}
+                    inferSize
+                    class="w-full h-[268px] object-cover"
+                    alt={item.attributes.title}
+                  />
+                )}
+
                 <div class="px-5 py-7">
                   <p class="font-display text-display-sm font-bold mb-3 line-clamp-3 ">
                     {item.attributes.title}
