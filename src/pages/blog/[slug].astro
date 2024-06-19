@@ -46,12 +46,17 @@ const page = Astro.props;
       ><h1 class="text-display-xl mb-16 max-w-[800px]">
         {page.attributes.title}
       </h1>
-      <Image
-        src={page.attributes.featuredImage.data.attributes.url}
-        inferSize
-        alt={page.attributes.title}
-        class="w-full h-[640px] object-cover mb-8 rounded-t-lg"
-      />
+      {
+        page.attributes.featuredImage.data && (
+          <Image
+            src={page.attributes.featuredImage.data.attributes.url}
+            inferSize
+            alt={page.attributes.title}
+            class="w-full h-[640px] object-cover mb-8 rounded-t-lg"
+          />
+        )
+      }
+
       <div
         class="flex flex-row gap-12 mb-24 w-full justify-between sm:justify-start"
       >
