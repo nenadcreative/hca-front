@@ -9,7 +9,7 @@ const { content } = Astro.props;
 
 <section class="relative text-white text-center py-24">
   {
-    content.bgImage.data && (
+    content.bgImage.data.attributes && (
       <Image
         src={content.bgImage.data.attributes.url}
         alt=""
