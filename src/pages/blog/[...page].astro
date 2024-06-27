@@ -38,9 +38,10 @@ const { page }: { page: any } = Astro.props;
 ---
 
 <Layout
-  metaImage={page.attributes.SEO?.metaImage?.data?.attributes?.url || "/OG.png"}
-  metaTitle={page.attributes.SEO?.metaTitle || ""}
-  metaDescription={page.attributes.SEO?.metaDescription || ""}
+  metaImage={pagesData.attributes.SEO?.metaImage?.data?.attributes?.url ||
+    "/OG.png"}
+  metaTitle={pagesData.attributes.SEO?.metaTitle || ""}
+  metaDescription={pagesData.attributes.SEO?.metaDescription || ""}
 >
   <section class="py-24 bg-section-bg object-cover bg-no-repeat">
     <Container
