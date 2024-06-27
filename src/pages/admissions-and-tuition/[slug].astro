@@ -42,15 +42,9 @@ const page = Astro.props;
 ---
 
 <Layout
-  metaImage={page.attributes.SEO
-    ? page.attributes.SEO.metaImage.data
-      ? page.attributes.SEO.metaImage.data.attributes.url
-      : "/OG.png"
-    : ""}
-  metaTitle={page.attributes.SEO ? page.attributes.SEO.metaTitle : ""}
-  metaDescription={page.attributes.SEO
-    ? page.attributes.SEO.metaDescription
-    : ""}
+  metaImage={page.attributes.SEO?.metaImage?.data?.attributes?.url || "/OG.png"}
+  metaTitle={page.attributes.SEO?.metaTitle || ""}
+  metaDescription={page.attributes.SEO?.metaDescription || ""}
 >
   <RenderSections content={page.attributes.sections} />
 </Layout>

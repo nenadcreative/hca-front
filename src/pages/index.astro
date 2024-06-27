@@ -14,11 +14,10 @@ const homeData = await fetchApi<Home>({
 ---
 
 <Layout
-  metaImage={homeData.attributes.SEO.metaImage.data
-    ? homeData.attributes.SEO.metaImage.data.attributes.url
-    : "/OG.png"}
-  metaTitle={homeData.attributes.SEO.metaTitle}
-  metaDescription={homeData.attributes.SEO.metaDescription}
+  metaImage={homeData.attributes.SEO?.metaImage?.data?.attributes?.url ||
+    "/OG.png"}
+  metaTitle={homeData.attributes.SEO?.metaTitle || ""}
+  metaDescription={homeData.attributes.SEO?.metaDescription || ""}
 >
   <RenderSections content={homeData.attributes.sections} />
 </Layout>

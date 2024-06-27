@@ -28,11 +28,9 @@ const content = pagesData.attributes;
 ---
 
 <Layout
-  metaImage={content.SEO.metaImage.data
-    ? content.SEO.metaImage.data.attributes.url
-    : "/OG.png"}
-  metaTitle={content.SEO.metaTitle}
-  metaDescription={content.SEO.metaDescription}
+  metaImage={content.SEO?.metaImage?.data?.attributes?.url || "/OG.png"}
+  metaTitle={content.SEO?.metaTitle || ""}
+  metaDescription={content.SEO?.metaDescription || ""}
 >
   <section class="py-24 bg-section-bg object-cover bg-no-repeat">
     <Container
