@@ -13,8 +13,6 @@ const backgrounds = {
   gray: "bg-gray",
   white: "bg-white",
 };
-
-
 ---
 
 <section
@@ -28,59 +26,58 @@ const backgrounds = {
         )
       }
       {content.title && <h2>{content.title}</h2>}
-      
+
       {content.description && <BlocksRenderer content={content.description} />}
     </div>
     <div
       class=`mt-14 mb-14 grid ${content.cards.length > 3 ? " lg:flex lg:flex-row lg:gap-6 " : "lg:grid-cols-3"} grid-cols-1 sm:grid-cols-2  gap-14 sm:gap-6 `
     >
-    {content.cards && content.cards.length > 0 ? (
-      <div
-        class=`mt-14 mb-14 grid ${content.cards.length > 3 ? " lg:flex lg:flex-row lg:gap-6 " : "lg:grid-cols-3"} grid-cols-1 sm:grid-cols-2  gap-14 sm:gap-6 `
-      >
-        {
-          content.cards.map((card) => (
-            <div class={`flex  flex-col items-center bg-white rounded-lg ${content.cards.length > 3 ? " lg:px-4 lg:grow lg:w-1/4" : "lg:px-7"} px-4 sm:px-7 py-6 sm:py-12 shadow-lg`}>
-              <Image
-                src={card.icon.data.attributes.url}
-                class="w-20 h-20 block mx-auto mb-3 object-cover rounded-xl"
-                inferSize
-                alt={card.title}
-              />
-              <p
-                class={` ${content.cards.length > 3 ? " text-display-sm lg:grow xl:grow-0" : "text-display-md"} mb-5   font-display  font-bold`}
+      {
+        content.cards && content.cards.length > 0 ? (
+          <div
+            class={`mt-14 mb-14 grid ${content.cards.length > 3 ? " lg:flex lg:flex-row lg:gap-6 " : "lg:grid-cols-3"} grid-cols-1 sm:grid-cols-2  gap-14 sm:gap-6 `}
+          >
+            {content.cards.map((card) => (
+              <div
+                class={`flex  flex-col items-center bg-white rounded-lg ${content.cards.length > 3 ? " lg:px-4 lg:grow lg:w-1/4" : "lg:px-7"} px-4 sm:px-7 py-6 sm:py-12 shadow-lg`}
               >
-                {card.title}
-              </p>
-              <div class=" lg:grow xl:grow-0">
-                <BlocksRenderer content={card.description} />
+                <Image
+                  src={card.icon.data.attributes.url}
+                  class="w-20 h-20 block mx-auto mb-3 object-cover rounded-xl"
+                  inferSize
+                  alt={card.title}
+                />
+                <p
+                  class={` ${content.cards.length > 3 ? " text-display-sm lg:grow xl:grow-0" : "text-display-md"} mb-5   font-display  font-bold`}
+                >
+                  {card.title}
+                </p>
+                <div class=" lg:grow xl:grow-0">
+                  <BlocksRenderer content={card.description} />
+                </div>
               </div>
-            </div>
-          ))
-        }
-      </div>
-    ) : (
-      <p>No cards found.</p>
-    )}
+            ))}
+          </div>
+        ) : (
+          <p>No cards found.</p>
+        )
+      }
     </div>
     <div class="mt-8">
-    {
-      content.button && (
-        <>
-          {content.button.type === "modal" ? (
-            <Modal buttonText={content.button.text} client:load />
-          ) : (
-            <ButtonLink
-              button={content.button}
-              variant={content.button.type}
-            />
-          )}
-
-          
-          
-        </>
-      )
-    }
+      {
+        content.button && (
+          <>
+            {content.button.type === "modal" ? (
+              <Modal buttonText={content.button.text} client:load />
+            ) : (
+              <ButtonLink
+                button={content.button}
+                variant={content.button.type}
+              />
+            )}
+          </>
+        )
+      }
     </div>
   </Container>
 </section>
