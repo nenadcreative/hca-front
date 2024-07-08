@@ -38,7 +38,12 @@ const backgrounds = {
         <div
           class="h-fit rounded-lg shadow-lg bg-white md:py-16 py-8 md:px-8 px-4"
         >
-          <p class="mb-4 tagline text-dark-1">{content.tagline}</p>
+          {
+            content.tagline && (
+              <p class="mb-4 tagline text-dark-1">{content.tagline}</p>
+            )
+          }
+
           <h2 class="mb-4 text-brand-blue">{content.title}</h2>
           <div class="mb-9">
             <BlocksRenderer content={content.description} />

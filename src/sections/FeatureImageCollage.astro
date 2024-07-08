@@ -29,8 +29,7 @@ const backgrounds = {
     </div>
 
     <div class="lg:w-1/2 md:max-w-3xl">
-      <p class="tagline mb-2">{content.tagline}</p>
-
+      {content.tagline && <p class="tagline mb-2">{content.tagline}</p>}
       <h2 class="mb-5"><DecoratedText content={content.title} /></h2>
       <div class="mb-6"><BlocksRenderer content={content.description} /></div>
 

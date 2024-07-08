@@ -43,7 +43,7 @@ const backgrounds = {
         }
       </div>
       <div class="w-full md:w-1/2">
-        <p class="tagline mb-2">{content.tagline}</p>
+        {content.tagline && <p class="tagline">{content.tagline}</p>}
         <h2 class="mb-5">
           <DecoratedText content={content.title} />
         </h2>
