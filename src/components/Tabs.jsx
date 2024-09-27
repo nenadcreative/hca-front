@@ -45,12 +45,6 @@ const TabsNewsAndEvents = ({ content }) => {
           value="winter 2024"
           className=" px-4 py-3 bg-transparent text-dark-1  data-[state=active]:text-white data-[state=active]:bg-dark-2 "
         >
-          Winter 2024
-        </Tabs.Trigger>
-        <Tabs.Trigger
-          value="spring 2025"
-          className=" px-4 py-3 bg-transparent text-dark-1  data-[state=active]:text-white data-[state=active]:bg-dark-2 "
-        >
           Spring 2025
         </Tabs.Trigger>
         <Tabs.Trigger
