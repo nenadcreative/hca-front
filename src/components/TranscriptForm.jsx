@@ -596,138 +596,97 @@ const TranscriptForm = () => {
         </div>
       </div>
 
-      <h5 className="my-6">For Office Use Only</h5>
+<h5 className="my-6">For Office Use Only</h5>
 
-      <label className="mb-2" htmlFor="VerifiedBy">
-        Verified By
-        <span className="text-[#ff3333]">*</span>
-      </label>
+<label className="mb-2" htmlFor="VerifiedBy">
+  Verified By
+</label>
 
+<input
+  placeholder="Enter details here..."
+  className="border border-dark-3 rounded-lg outline-none w-full  px-3 py-2 focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2 mb-4"
+  {...register("VerifiedBy")}
+/>
+
+<fieldset className="mb-4">
+  <legend className="mb-2">Financial Hold</legend>
+  <div className="w-full grid grid-cols-1  sm:grid-cols-2 gap-12">
+    <div className="flex gap-2 items-center justify-center">
       <input
+        type="radio"
+        value={"Yes"}
+        id="Yes"
         placeholder="Enter details here..."
-        className="border border-dark-3 rounded-lg outline-none w-full  px-3 py-2 focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2 mb-4"
-        {...register("VerifiedBy", { required: true })}
+        className="border border-dark-3 rounded-lg outline-none w-full  focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2 "
+        {...register("FinancialHold")}
       />
-      {errors.VerifiedBy && (
-        <span className=" bg-[#ff3333] p-px">This field is required</span>
-      )}
+      <label htmlFor="Yes">Yes</label>
+    </div>
 
-      <fieldset className="mb-4">
-        <legend className="mb-2">Financial Hold</legend>
-        <div className="w-full grid grid-cols-1  sm:grid-cols-2 gap-12">
-          <div className="flex gap-2 items-center justify-center">
-            <input
-              type="radio"
-              value={"Yes"}
-              id="Yes"
-              placeholder="Enter details here..."
-              className="border border-dark-3 rounded-lg outline-none w-full  focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2 "
-              {...register("FinancialHold", { required: true })}
-            />
-            <label htmlFor="Yes">
-              Yes
-              <span className="text-[#ff3333]">*</span>
-            </label>
-            {errors.Yes && (
-              <span className=" bg-[#ff3333] p-px">This field is required</span>
-            )}
-          </div>
-
-          <div className="flex gap-2 items-center ">
-            <input
-              type="radio"
-              value={"No"}
-              id="No"
-              placeholder="Enter details here..."
-              className="border border-dark-3 rounded-lg outline-none w-full   focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2"
-              {...register("FinancialHold", { required: true })}
-            />
-            {errors.No && (
-              <span className=" bg-[#ff3333] p-px">This field is required</span>
-            )}
-            <label htmlFor="TranscriptType">
-              No
-              <span className="text-[#ff3333]">*</span>
-            </label>
-          </div>
-        </div>
-      </fieldset>
-
-      <label className="mb-2" htmlFor="CCCharged">
-        CC Charged
-        <span className="text-[#ff3333]">*</span>
-      </label>
-
+    <div className="flex gap-2 items-center ">
       <input
+        type="radio"
+        value={"No"}
+        id="No"
         placeholder="Enter details here..."
-        className="border border-dark-3 rounded-lg outline-none w-full  px-3 py-2 focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2 mb-4"
-        {...register("CCCharged", { required: true })}
+        className="border border-dark-3 rounded-lg outline-none w-full   focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2"
+        {...register("FinancialHold")}
       />
-      {errors.CCCharged && (
-        <span className=" bg-[#ff3333] p-px">This field is required</span>
-      )}
+      <label htmlFor="No">No</label>
+    </div>
+  </div>
+</fieldset>
 
-      <label className="mb-2" htmlFor="ProcessBy">
-        Process By
-        <span className="text-[#ff3333]">*</span>
-      </label>
+<label className="mb-2" htmlFor="CCCharged">
+  CC Charged
+</label>
 
-      <input
-        placeholder="Enter details here..."
-        className="border border-dark-3 rounded-lg outline-none w-full  px-3 py-2 focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2 mb-4"
-        {...register("ProcessBy", { required: true })}
-      />
-      {errors.ProcessBy && (
-        <span className=" bg-[#ff3333] p-px">This field is required</span>
-      )}
+<input
+  placeholder="Enter details here..."
+  className="border border-dark-3 rounded-lg outline-none w-full  px-3 py-2 focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2 mb-4"
+  {...register("CCCharged")}
+/>
 
-      {/* Date Emailed  and Date Mailed*/}
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-12">
-        <div>
-          <label className="mb-2" htmlFor="DateEmailed">
-            Date Emailed <span className="text-[#ff3333]">*</span>
-          </label>
-          <input
-            type="date"
-            placeholder="Enter Date here"
-            className="border border-dark-3 rounded-lg w-full px-3 py-2 outline-none focus-visible:border-brand-blue focus-visible:placeholder:text-dark-2 mb-4"
-            {...register("DateEmailed", { required: true })}
-          />
-          {errors.DateEmailed && (
-            <span className=" bg-[#ff3333] p-px">This field is required</span>
-          )}
-        </div>
-        <div>
-          <label className="mb-2" htmlFor="DateMailed">
-            Date Mailed <span className="text-[#ff3333]">*</span>
-          </label>
-          <input
-            type="date"
-            placeholder="Enter Date Here"
-            className="border border-dark-3 rounded-lg w-full px-3 py-2 outline-none focus-visible:border-brand-blue focus-visible:placeholder:text-dark-2 mb-4"
-            {...register("DateMailed", { required: true })}
-          />
-          {errors.DateMailed && (
-            <span className=" bg-[#ff3333] p-px">This field is required</span>
-          )}
-        </div>
-      </div>
-      {/*
-      <div className="flex flex-row items-center gap-3">
-        <input type="checkbox" {...register("Terms", { required: true })} />
-        <label className=" text-body-md" htmlFor="Terms">
-          I accept the Terms
-        </label>
-      </div>
-      {errors.Terms && (
-        <span className=" bg-[#ff3333] p-px">This field is required</span>
-      )}
-    */}
+<label className="mb-2" htmlFor="ProcessBy">
+  Process By
+</label>
 
-      <input
-        className="bg-brand-blue cursor-pointer hover:bg-brand-blue2 text-white px-8 py-4 rounded-lg min-w-[200px] inline-flex justify-center font-semibold text-body-md mt-6  "
-        type="submit"
-      />
+<input
+  placeholder="Enter details here..."
+  className="border border-dark-3 rounded-lg outline-none w-full  px-3 py-2 focus-visible:border-brand-blue focus-visible:border focus-visible:placeholder:text-dark-2 mb-4"
+  {...register("ProcessBy")}
+/>
+
+{/* Date Emailed and Date Mailed */}
+<div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-12">
+  <div>
+    <label className="mb-2" htmlFor="DateEmailed">
+      Date Emailed
+    </label>
+    <input
+      type="date"
+      placeholder="Enter Date here"
+      className="border border-dark-3 rounded-lg w-full px-3 py-2 outline-none focus-visible:border-brand-blue focus-visible:placeholder:text-dark-2 mb-4"
+      {...register("DateEmailed")}
+    />
+  </div>
+  <div>
+    <label className="mb-2" htmlFor="DateMailed">
+      Date Mailed
+    </label>
+    <input
+      type="date"
+      placeholder="Enter Date Here"
+      className="border border-dark-3 rounded-lg w-full px-3 py-2 outline-none focus-visible:border-brand-blue focus-visible:placeholder:text-dark-2 mb-4"
+      {...register("DateMailed")}
+    />
+  </div>
+</div>
+
+<input
+  className="bg-brand-blue cursor-pointer hover:bg-brand-blue2 text-white px-8 py-4 rounded-lg min-w-[200px] inline-flex justify-center font-semibold text-body-md mt-6  "
+  type="submit"
+/>
     </form>
   );
 };
